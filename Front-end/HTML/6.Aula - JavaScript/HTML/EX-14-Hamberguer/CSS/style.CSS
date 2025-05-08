@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: rgb(73, 178, 243);
+    ;
+}
+
+#cabecalho {
+    background-color: rgb(73, 178, 243);
+    display: flex;
+    width: 100%;
+    height: 6vh;
+    padding: 20px;
+    justify-content: center;
+    font-family: "Lobster", serif;
+    ;
+    font-size: 30px;
+}
+
+#Menu {
+    background-color: rgb(99, 184, 236);
+    box-shadow: 1px 1px 20px 5px rgb(18, 98, 145);
+    height: 6vh;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
+
+.items {
+    display: inline-block;
+}
+
+#texto {
+    background-color: rgb(150, 216, 255);
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 5px rgb(4, 159, 248);
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgb(255, 255, 255);
+    font-family: "Lobster", serif;
+    width: 80vw;
+}
+
+#rodape {
+    text-align: center;
+    font-family: "Lobster", serif;
+}
+
+i#burguer {
+    display: block;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+i#burguer:hover {
+    background-color: rgb(49, 49, 49);
+    cursor: pointer;
+}
+
+@media screen and (min-width:768px) {
+    i#burguer {
+        display: none;
+    }
+
+    #Menu > items{
+        display: inline-block;
+    }
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soma</title>
+    <style>
+        .container {
+            background-color: lightcyan;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .Mais {
+            display: flex;
+            justify-content: center;
+            font-size: 18px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #valor1 {
+            border-radius: 10px;
+            padding: 4px;
+        }
+
+        #valor2 {
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .botao{
+            padding: 10px;
+        }
+
+        #Result{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div class="calculadora">
+        <h1> Soma de valores </h1>
+
+
+        <input type="text" id="valor1" name="valor1" placeholder="Digite o Primeiro valor">
+
+        <p class="Mais"> + </p>
+
+        <input type="text" id="valor2" name="valor2" placeholder="Digite o Segundo valor">
+        
+        <div class="botao">
+            <button onclick="Calcular()">Calcular</button>
+        </div>
+
+        <p id="Result"></p>
+
+        <script>
+            function Calcular() {
+                let valor1 = parseFloat(document.getElementById('valor1').value);
+                let valor2 = parseFloat(document.getElementById('valor2').value);
+                let soma = valor1 + valor2;
+                document.getElementById('Result').innerText = 'A soma entre ' + valor1 + ' e ' + valor2 + ' é: ' + soma;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

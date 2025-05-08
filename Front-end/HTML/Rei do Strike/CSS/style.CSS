@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Neuton", serif;
+}
+
+body{
+    background-image: url(../Source/BgCinza.jpg);
+}
+/* Parte superior (Cabeçalho) */
+#cabecalho{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+}
+
+.nomeLogo{
+    cursor: default;
+    display: flex;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.face{
+    width: 30px;
+    height: 30px;
+    background-image: url(../Source/facePreto.png);
+    background-size: cover;
+}
+
+.face:hover {
+    background-image: url(../Source/faceAmarelo.png);
+}
+
+.insta {
+    width: 30px;
+    height: 30px;
+    background-image: url(../Source/InstaPreto.png);
+    background-size: cover;
+}
+
+.insta:hover {
+    background-image: url(../Source/InstaAmarelo.png);
+}
+
+.Logo{
+    width: 120px;
+    height: 120px;
+}
+/*---------------------------------*/
+/* Parte menu de navegação */
+#containerNav{
+    display: flex;
+    flex-flow: row wrap;
+    width: 70%;
+    margin: auto;
+    font-size: 20px;
+
+}
+
+#Nav{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 10px;
+    background-color:#ebc438;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.click{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.click:hover{
+    transform: translate(0px, -2px);
+}
+
+#Banner{
+    margin-top: 3px;
+    background-image: url(../Source/pinosBoliche2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    box-shadow: 0px 3px 6px 4px rgb(99, 99, 99);
+}
+/*----------------------------------------------*/
+
+/* Classes */
+
+.Titulos{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 35px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.Textos{
+    font-size: 18px;
+    font-family: "Exo 2", sans-serif;
+    text-align: center;
+    margin-bottom: 7px;
+    color: rgb(26, 26, 26);
+}
+
+/*----------------------------------------------*/
+
+/* Como funciona? */
+
+#blablabla{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    margin-top: 45px;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+#comoFunciona{
+    cursor: default;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.637);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease-in-out;
+}
+
+#comoFunciona:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 10px 2px rgba(255, 251, 0, 0.151);
+}
+
+#fotoComoFunciona{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    /* margin-left: 260px; */
+    width: 130px;
+    height: 130px;
+}
+
+/*----------------------------------------------*/
+
+/* Sobre as pistas */
+
+#sobrePistas{
+    cursor: default;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.637);
+    padding: 10px;
+    margin-left: 80px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease-in-out;
+}
+
+#sobrePistas:hover{
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 10px 2px rgba(255, 251, 0, 0.151);
+}
+
+#fotoSobrePistas{
+    margin: auto;
+    width: 100%;
+    height: 200px;
+    background-image: url(../Source/pista.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+/*----------------------------------------------*/
+
+/* Parte de agendamento */
+
+#agendamento{
+    box-shadow: 0px 3px 6px 4px rgb(167, 166, 166);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 66%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+#tituloAgendamento{
+    font-family: "Bebas Neue", sans-serif /*"Neuton", serif*/;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 40px;
+    cursor: default;
+}
+
+#formulario{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#dados{
+    display: flex;
+    width: 500px;
+    margin-top: 20px;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.inputs{
+    font-family: "Exo 2", sans-serif;
+    border: none 1px black;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.mesa{
+    font-size: 15px;
+    font-family: "Exo 2",sans-serif;
+}
+
+#botao{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#botaoEnviar{
+    font-family: "Exo 2", sans-serif;
+    border: solid 1px black;
+    border-radius: 20px;
+    width: 120px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+/*----------------------*/
+
+/* Rodapé */
+#rodape{
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    align-items: center;
+    color: white;
+}
+
+/*-------------------------------------------------------*/
+ 
+/* Feito por Kauan*/
+/* o que temos */
+ 
+#o-que-temos {
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    width: 70%;
+}
+ 
+#o-que-temos h2 {
+    cursor: default;
+    width: 100%;
+    font-size: 2.5em;
+    color: #212121;
+    margin-bottom: 20px;
+    font-family: "Neuton", serif;
+}
+ 
+.atracoes {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+ 
+.atracao {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease-in-out;
+    font-family: "Neuton", serif;
+}
+ 
+.atracao:hover {
+    transform: translateY(-10px);
+}
+ 
+.atracao h3 {
+    font-size: 1.8em;
+    color: rgb(184, 157, 39);
+    margin-bottom: 10px;
+}
+ 
+.atracao p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(243, 230, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        table {
+            background-color: gray;
+            border-radius: 10px;
+
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+        td:hover{
+            cursor: pointer;
+            transform: translate(-1%,-1%);
+            background-color: rgb(177, 216, 252)
+        }
+    </style>
+    <link rel="stylesheet" href="style.CSS">
+    <title>Calculadora
+    </title>
+</head>
+
+<body>
+    <div class="container">
+        Fernando Nascimento
+
+        <table class="calculadora">
+            <!-- Linha Amostra Numeros -->
+            <tr>
+                <td colspan="4" class="display">0</td>
+            </tr>
+            <!-- Linha 1 Numero Funcionais -->
+            <tr class="linha2">
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td class="operador">/</td>
+            </tr>
+            <!-- Linha 2 Numero Funcionais -->
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td class="operador">*</td>
+            </tr>
+            <!-- Linha 3 Numero Funcionais -->
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td class="operador">-</td>
+            </tr>
+            <!-- Linha Final Numero Funcionais -->
+            <tr>
+                <td>0</td>
+                <td>.</td>
+                <td class="igual">=</td>
+                <td class="operador">+</td>
+            </tr>
+    </div>
+    </table>
+</body>
+
+</html>

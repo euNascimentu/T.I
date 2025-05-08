@@ -1,0 +1,349 @@
+@charset "UTF-8";
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Configurações Gerais */
+main{
+    display: flex;
+    width: 100vw;
+}
+
+/* Menu Lateral */
+
+.alinhamentoMENU{
+    display: flex;
+    flex-direction: column;
+}
+
+aside#menuLateral{
+    display: flex;
+    flex-direction: column;
+    width: 14vw;
+    height: 100%;
+    background-color: #660011;
+    align-items: center;
+}
+
+.Menu{
+    margin: 50px;
+    font-size: 30px;
+    font-family: "Jaro", sans-serif;
+    color: black;
+}
+
+.textoMENU{
+    color: #000000;
+}
+
+/* Logo Menu Lateral */
+.logoVAVA{
+    width: 150px;
+    height: 150px;
+    margin: 55px;
+}
+
+/* Conteudo Central */
+section{
+    background-color: #000000;
+    width: 86vw;
+    padding: 10px;
+}
+
+/* ---------------------------------------- */
+
+/* CARDS */
+
+/* Alinhamento CARD PRINCIPAL */
+
+.fundoCARDinicio{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+}
+
+.cardInicio {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 1550px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardInicio img {
+    width: 100%;
+    height: 500px;
+}
+.cardInicio .container {
+    padding: 15px;
+}
+.cardInicio h4 {
+    margin: 0 0 10px;
+}
+.cardInicio p {
+    color: #555;
+}
+.cardInicio button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.cardInicio:hover {
+    transform: translate(-0px, -4px)
+}
+
+/* Textos Site */
+
+.cardTexto{
+    font-size: 40px;
+    text-align: center;
+    color: #F7F48B;
+}
+.cardTexto2{
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/*Fundo Cards Alinhamento*/
+
+.fundoCARDS{
+    display: flex;
+    background-attachment: fixed;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Card MIBR */
+
+.cardMIBR {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 260px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardMIBR img {
+    width: 100%;
+    height: 100px;
+}
+.cardMIBR h4 {
+    margin: 0 0 10px;
+}
+.cardMIBR p {
+    color: #555;
+}
+.cardMIBR button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.cardMIBR:hover {
+    transform: translate(-0px, -4px)
+}
+
+/* Texto Card MIBR */
+.textoMIBR{
+    color: lightblue;
+    font-size: 17px;
+    text-align: center;
+}
+
+.textoMIBR2{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Card SUNSET */
+
+.cardSUNSET {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 260px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardSUNSET img {
+    width: 100%;
+    height: 100px;
+}
+.cardSUNSET .container {
+    padding: 15px;
+}
+.cardSUNSET h4 {
+    margin: 0 0 10px;
+}
+.cardSUNSET p {
+    color: #555;
+}
+
+.cardSUNSET:hover {
+    transform: translate(-0px, -4px)
+}
+
+/* Texto Card MIBR */
+.textoSUNSET{
+    color: lightsalmon;
+    font-size: 17px;
+    text-align: center;
+}
+
+.textoSUNSET2{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* Card VYSE */
+
+.cardVYSE {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 260px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardVYSE img {
+    width: 100%;
+    height: 100px;
+}
+.cardVYSE .container {
+    padding: 15px;
+}
+.cardVYSE h4 {
+    margin: 0 0 10px;
+}
+.cardVYSE p {
+    color: #555;
+}
+
+.cardVYSE:hover {
+    transform: translate(-4px, -4px)
+}
+
+/* Texto Card VYSE */
+
+.textoVYSE{
+    color: lightsalmon;
+    font-size: 17px;
+    text-align: center;
+}
+
+.textoVYSE2{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* --------------------------------------------- */
+
+/* Card VYSE */
+
+.cardERROR {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 260px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardERROR img {
+    width: 100%;
+    height: 100px;
+}
+.cardERROR .container {
+    padding: 15px;
+}
+.cardERROR h4 {
+    margin: 0 0 10px;
+}
+.cardERROR p {
+    color: #555;
+}
+
+.cardERROR:hover {
+    transform: translate(-0px, -4px)
+}
+
+/* Texto Card MIBR */
+.textoERROR{
+    color: lightsalmon;
+    font-size: 17px;
+    text-align: center;
+}
+
+.textoERROR{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* --------------------------------------------- */
+
+/* Card VYSE */
+
+.cardERROR2 {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 1);
+    width: 260px;
+    margin: 20px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+.cardERROR2 img {
+    width: 100%;
+    height: 100px;
+}
+.cardERROR2 .container {
+    padding: 15px;
+}
+.cardERROR2 h4 {
+    margin: 0 0 10px;
+}
+.cardERROR2 p {
+    color: #555;
+}
+
+.cardERROR2:hover {
+    transform: translate(-0px, -4px)
+}
+
+/* Texto Card MIBR */
+.textoERROR2{
+    color: lightsalmon;
+    font-size: 17px;
+    text-align: center;
+}
+
+.textoERROR2{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* --------------------------------------------- */

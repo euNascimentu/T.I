@@ -1,0 +1,10 @@
+@charset "UTF-8";
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: skyblue;
+    font-style: italic;
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}

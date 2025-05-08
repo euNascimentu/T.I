@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#bloquinhos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 35%;
+}
+
+#div01{
+    width: 100px;
+    height: 100px;
+}
+#div02{
+    width: 100px;
+    height: 100px;
+}
+#div03{
+    width: 100px;
+    height: 100px;
+}
+#div04{
+    width: 100px;
+    height: 100px;
+}
+#div05{
+    width: 100px;
+    height: 100px;
+}
+#div06{
+    width: 100px;
+    height: 100px;
+}
+#div07{
+    width: 100px;
+    height: 100px;
+}
+#div08{
+    width: 100px;
+    height: 100px;
+}
+#div09{
+    width: 100px;
+    height: 100px;
+}
+#div10{
+    width: 100px;
+    height: 100px;
+}

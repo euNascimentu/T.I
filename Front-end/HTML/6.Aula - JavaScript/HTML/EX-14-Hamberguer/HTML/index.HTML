@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Burguer</title>
+    <link rel="stylesheet" href="../CSS/style.CSS">
+    <link rel="stylesheet" href="../JS/script.JS">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    </style>
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+</head>
+
+<body onresize="diminuirTela()">
+    <main>
+        <header id="cabecalho">
+            Menu Burguer
+        </header>
+        <i class="material-symbols-outlined" id="burguer" onclick="clickmenu()">Menu</i>
+        <div id="Menu">
+            <h1 class="items">Link 1</h1>
+            <h1 class="items">Link 2</h1>
+            <h1 class="items">Link 3</h1>
+            <h1 class="items">Link 4</h1>
+        </div>
+        <section id="texto">
+            Bem-vindo ao melhor lugar para os amantes de hambúrgueres! Aqui, cada mordida é uma experiência
+            inesquecível, repleta de sabor e qualidade. Nossos ingredientes são frescos, selecionados com carinho para
+            garantir um hambúrguer suculento e irresistível.
+
+            Nossa jornada começou com uma paixão: criar o hambúrguer perfeito. Depois de muitas experiências, testes e
+            melhorias, desenvolvemos um cardápio que agrada a todos os paladares. Desde o clássico cheeseburger até as
+            opções mais ousadas, temos algo especial para você.
+
+            Cada hambúrguer é preparado artesanalmente, com carne de alta qualidade, pães fresquinhos e molhos
+            exclusivos que fazem toda a diferença. Nossos acompanhamentos complementam a experiência, trazendo batatas
+            crocantes, onion rings douradinhas e milkshakes cremosos para acompanhar.
+
+            Nosso ambiente foi pensado para você se sentir à vontade, seja para um lanche rápido ou um momento especial
+            com os amigos. A iluminação aconchegante, a trilha sonora animada e o atendimento impecável tornam sua
+            visita ainda mais memorável.
+
+            Não importa se você prefere um hambúrguer simples ou uma explosão de sabores com queijos especiais e
+            ingredientes inusitados. Nosso compromisso é oferecer qualidade, sabor e uma experiência gastronômica que
+            você não vai esquecer.
+
+            E não podemos esquecer das nossas opções para todos os gostos! Temos versões vegetarianas incríveis, que
+            garantem sabor e textura surpreendentes. Cada detalhe do nosso cardápio foi pensado para atender a todos,
+            sempre com muito amor e dedicação.
+
+            Se você está em busca de um lugar que une qualidade, bom atendimento e um cardápio irresistível, encontrou o
+            seu novo ponto de encontro favorito. Aqui, hambúrguer não é apenas comida, é uma experiência que desperta
+            emoções.
+            Aproveite também as nossas promoções especiais! Temos descontos exclusivos para aniversariantes, combos
+            imperdíveis e ofertas especiais para quem faz parte do nosso programa de fidelidade.
+
+            Não perca tempo! Venha nos visitar e descubra por que somos apaixonados por hambúrguer. Cada visita é uma
+            nova aventura gastronômica, e estamos ansiosos para compartilhar essa experiência com você.
+
+            Peça online ou venha nos visitar. Seu hambúrguer dos sonhos está a apenas um clique de distância!
+        </section>
+        <footer id="rodape">
+            &copy; Fernando Nascimento
+        </footer>
+
+        <script>
+            function diminuirTela() {
+                if (window.innerWidth >= 768) {
+                    Menu.style.display = 'block'
+                } else {
+                    Menu.style.display = 'none'
+                }
+            }
+            function clickmenu() {
+                if (Menu.style.display == "block") {
+                    Menu.style.display = "none"
+                } else {
+                    Menu.style.display = "block"
+                    items.style.display = 'inline-block'
+                }
+            }
+        </script>
+        
+    </main>
+</body>
+
+</html>
