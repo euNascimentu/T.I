@@ -1,12 +1,29 @@
 <?php
 session_start();
-include 'produtos-data.php'; // Inclui os dados dos produtos
+
+// Conexão com o banco
+$conexao = new mysqli('localhost', 'root', '', 'skateshop');
+
+// Verifica erros
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+}
+
+// Busca produtos no banco
+$produtos = [];
+$resultado = $conexao->query("SELECT * FROM Produtos ORDER BY nome");
+
+if ($resultado) {
+    while ($produto = $resultado->fetch_assoc()) {
+        $produtos[] = $produto;
+    }
+}
 
 // Mostra mensagem de sucesso se existir
 $mensagem = '';
 if (isset($_SESSION['mensagem'])) {
     $mensagem = $_SESSION['mensagem'];
-    unset($_SESSION['mensagem']); // Remove a mensagem para não mostrar novamente
+    unset($_SESSION['mensagem']);
 }
 ?>
 
@@ -29,21 +46,20 @@ if (isset($_SESSION['mensagem'])) {
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="produtos.php">Produtos</a></li>
-                    <li><a href="index.php#carrinho">Carrinho</a></li>
-                    <li><a href="index.php#contato">Contato</a></li>
+                    <li><a href="home.php#carrinho">Carrinho</a></li>
+                    <li><a href="home.php#contato">Contato</a></li>
                 </ul>
             </nav>
             <div id="cart-icon">
-                <a href="index.php#carrinho">🛒 <span id="cart-count"><?= isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : '0' ?></span></a>
+                <a href="home.php#carrinho">🛒 <span id="cart-count"><?= isset($_SESSION['carrinho']) ? count($_SESSION['carrinho']) : '0' ?></span></a>
             </div>
         </div>
     </header>
 
     <main class="container">
         <section>
-            <!-- Adicione esta div para mostrar mensagens -->
             <?php if ($mensagem): ?>
                 <div class="mensagem-sucesso">
                     <?= $mensagem ?>
@@ -54,30 +70,21 @@ if (isset($_SESSION['mensagem'])) {
 
             <!-- Filtros por Categoria -->
             <div class="filtros-categoria">
-                <button class="btn-filtro active" data-categoria="todos">Todos</button>
-                <button class="btn-filtro" data-categoria="completo">Skates Completos</button>
-                <button class="btn-filtro" data-categoria="shape">Shapes</button>
-                <button class="btn-filtro" data-categoria="truck">Trucks</button>
-                <button class="btn-filtro" data-categoria="rodas">Rodas</button>
-                <button class="btn-filtro" data-categoria="rolamentos">Rolamentos</button>
-                <button class="btn-filtro" data-categoria="lixa">Lixas</button>
-                <button class="btn-filtro" data-categoria="vestuario">Vestuário</button>
-                <button class="btn-filtro" data-categoria="tenis">Tênis</button>
-                <button class="btn-filtro" data-categoria="acessorios">Acessórios</button>
-                <button class="btn-filtro" data-categoria="longboard">Longboards</button>
+                <!-- ... (mantenha os botões de filtro existentes) ... -->
             </div>
 
             <div class="products-grid">
                 <?php foreach ($produtos as $produto): ?>
-                    <div class="product-card" data-categoria="<?= $produto['categoria'] ?>">
+                    <div class="product-card" data-categoria="<?= htmlspecialchars($produto['categoria']) ?>">
                         <div class="product-image">
-                            <img src="<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>">
+                            <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>"
+                                 onerror="this.onerror=null;this.src='images/sem-imagem.jpg'">
                         </div>
                         <div class="product-info">
-                            <h3><?= $produto['nome'] ?></h3>
+                            <h3><?= htmlspecialchars($produto['nome']) ?></h3>
                             <div class="product-price">R$ <?= number_format($produto['preco'], 2, ',', '.') ?></div>
                             <form method="POST" action="adicionar-carrinho.php">
-                                <input type="hidden" name="produto_id" value="<?= $produto['id'] ?>">
+                                <input type="hidden" name="produto_id" value="<?= $produto['id_produto'] ?>">
                                 <input type="number" name="quantidade" value="1" min="1" style="width: 60px; margin-bottom: 10px;">
                                 <button type="submit" class="add-to-cart">Adicionar ao Carrinho</button>
                             </form>
