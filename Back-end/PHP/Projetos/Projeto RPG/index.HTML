@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.CSS">
+    <title> Carros </title>
+</head>
+
+<body>
+    <header>
+        <h1 class="cabTexto"> Asfalto Urbano </h1>
+    </header>
+    <section>
+        <form action="carros.php" method="GET">
+            <div style="display: flex; flex-flow: column wrap;">
+                <div class="title">
+                    <h1 class="fontTitle"> Crie seu carro! </h1>
+                </div>
+                <div class="image">
+                    <img class="imagem" src="source/Paul_Index.jpg" alt="Image Central">
+                </div>
+                <div id="selects">
+                    <select name="modelo" id="modeloCarro">
+                        <option value="0"> Selecione o modelo: </option>
+                        <option value="Compass"> Compass </option>
+                        <option value="PassatHighline"> Passat HighLine </option>
+                        <option value="GT3RS"> 911 GT3 RS </option>
+                        <option value="R8"> R8 </option>
+                        <option value="GLA200"> GLA 200 </option>
+                    </select>
+
+                    <select name="cor" id="corCarro">
+                        <option value="0"> Selecione a cor: </option>
+                        <option value="Prata"> Prata </option>
+                        <option value="Vermelho"> Vermelho </option>
+                        <option value="Azul"> Azul </option>
+                        <option value="Amarelo"> Amarelo </option>
+                        <option value="Preto"> Preto </option>
+                    </select>
+                    <div id="fundoButton">
+                        <button class="botaoEnviar" type="submit"> Criar </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>
