@@ -25,9 +25,21 @@
                 <a class="refs" href=""> Planos e Preços </a>
             </div>
             <div class="botoesHeader">
-                <button class="entrar" type="button" onclick="window.location.href='Login.php'"> Entrar </button>
-                <button class="cadastrar" type="button" onclick="window.location.href='Cadastrar.HTML'"> Assinar Agora
-                </button>
+                <div id="user-area">
+                <?php if (isset($_SESSION['usuario_nome'])): ?>
+                    <div class="dropdown">
+                        <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario_nome']) ?> ▼</button>
+                    <div class="dropdown-content">
+                        <a href="perfil.php">Meu Perfil</a>
+                        <a href="pedidos.php">Meus Pedidos</a>
+                        <a href="logout.php">Sair</a>
+                    </div>
+                </div>
+                <?php else: ?>
+                    <a href="index.php">Log In</a>
+                <?php endif; ?>
+                </div>
+                <a class="cadastrar" href='registros.php'> Assinar Agora </a>
             </div>
         </div>
     </header>
@@ -46,7 +58,7 @@
                 </p>
             </div>
             <div id="botao">
-                <a class="assineJa" href="Cadastrar.HTML">
+                <a class="assineJa" href="registros.php">
                     <p style="font-size: 25px;">Assine Já</p>
                     <img style="width: 30px; height: 30px;" src="../Source/saida.png" alt="">
                 </a>
