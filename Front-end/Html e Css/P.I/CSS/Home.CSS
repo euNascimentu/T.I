@@ -1,22 +1,24 @@
 @charset "UTF-8";
 
-*{
+* {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #044754;
+    overflow-x: hidden;
 }
 
-header{
+/* HEADER */
+header {
     background-color: #044754;
     display: flex;
     height: 60px;
 }
 
-#cabecalho{
-    /* background-color: red; */
+#cabecalho {
     display: flex;
     flex-flow: wrap row;
     align-items: center;
@@ -27,97 +29,123 @@ header{
     font-size: 17px;
 }
 
-.refs{
+.refs {
     color: white;
     text-decoration: none;
 }
 
-.clicksHeader{
-    /* background-color: blue; */
+.clicksHeader {
     display: flex;
     margin: auto;
     width: 74%;
     justify-content: space-around;
 }
 
-.botoesHeader{
-    /* background-color: white; */
+.botoesHeader {
     display: flex;
     margin: auto;
     width: 20%;
     justify-content: space-around;
 }
 
-.entrar{
-    background-color: transparent;
+.entrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     width: 70px;
+    height: 20px;
     color: white;
     border: solid 1px white;
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
-.cadastrar{
+
+.cadastrar {
     background-color: white;
     color: #044754;
     border: none;
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.logoHeader{
+.logoHeader {
     width: 60px;
     height: 60px;
 }
 
-section{
+/* DROPDOWN */
+#user-area {
+    margin-left: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+/* MAIN CONTENT */
+section {
     background-color: #BBC5C7;
     display: flex;
     flex-flow: wrap column;
-    height: 818px;
-    padding: 10px;
+    height: auto;
+    padding: 20px 10px;
     font-family: "Josefin Sans", sans-serif;
 }
 
-#Textos{
-    /* background-color: aqua; */
+#Textos {
     display: flex;
     flex-flow: wrap row;
-    width: 50vw;
-    margin-top: 50px;
-    margin-left: 50px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 15px;
     justify-content: center;
 }
 
-#Titulo{
-    /* background-color: red; */
-    font-size: 60px;
+#Titulo {
+    font-size: 2.5rem;
     font-weight: bold;
-    width: 40vw;
-    padding: 10px;
-}
-
-#subTitulo{
-    /* background-color: darkred; */
-    margin-top: 20px;
-    width: 40vw;
-    height: 6vh;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-}
-
-#botao{
-    display: flex; 
     width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+#subTitulo {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+#botao {
+    display: flex; 
+    width: 80%;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.assineJa{
+.assineJa {
     background-color: #044754;
     border: solid 1px black;
     border-radius: 10px;
@@ -131,90 +159,140 @@ section{
     font-weight: 600;
     text-decoration: none;
     color: white;
+    transition: all 0.3s ease;
 }
 
-.assineJa:hover{
+.assineJa:hover {
     transform: translate(0px, -3px);
     box-shadow: 0px 0px 9px 3px #FFFFFF;
-
 }
 
-.fundoBoneco{
-    width: 28vw;
+.fundoBoneco {
+    width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
-.imgBoneco{
-    width: 550px;
-    height: 550px;
+.imgBoneco {
+    max-width: 100%;
+    height: auto;
 }
 
-footer{
+/* FOOTER */
+footer {
     background-color: #BBC5C7;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60%;
+    height: auto;
     margin-top: 2px;
-    padding: 10px;
+    padding: 20px 10px;
+    gap: 15px;
 }
 
-.data{
-    position: relative;
-    left: 50px;
+.data {
     font-family: "Inter", sans-serif;
     font-size: 15px;
 }
 
-.redes{
+.redes {
     display: flex;
     justify-content: space-around;
-    width: 13%;
+    width: 100%;
+    max-width: 200px;
 }
 
-.logosRedes{
+.logosRedes {
     width: 30px;
     height: 30px;
 }
 
-.privacidade{
+.privacidade {
     display: flex;
     justify-content: space-around;
-    width: 300px;
-    position: relative;
-    right: 40px;
+    width: 100%;
+    max-width: 300px;
     font-family: "Inter", sans-serif;
     font-size: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.textoPriv{
+.textoPriv {
     text-decoration: none;
     color: black;
 }
 
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
+    
+    header{
+        display: flex;
+        width: 98%;
+        height: 9vh;
+        flex-direction: row;
+        align-items: center;
+    }
+    
     #cabecalho {
-        flex-direction: column;
-        align-items: flex-start;
+        display: flex;
+        width: 98%;
+        height: 9vh;
+        align-items: center;
     }
 
-    .clicksHeader, .botoesHeader {
-        width: 100%;
+    .cadastrar{
+        display: flex;
+        font-size: 15px;
+    }
+    
+    .clicksHeader {
+        display: flex;
+        align-items: center;
+        width: 55%;
+        height: 9vh;
         justify-content: space-between;
-        margin-top: 10px;
+        flex-wrap: wrap;
     }
-
+    
+    .botoesHeader {
+        display: flex;
+        align-items: center;
+        width: 30%;
+        height: 9vh;
+        justify-content: space-around;
+    }
+    
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 81.5vh;
+        width: 100%;
+    }
+    
+    #Textos {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .fundoBoneco {
+        width: 250px;
+    }
+    
     footer {
-        flex-direction: column;
+        background-color: #BBC5C7;
+        display: flex;
+        flex-flow: row;
+        height: 9vh;
+        margin-top: 2px;
         align-items: center;
         text-align: center;
     }
-
-    .data,
-    .privacidade,
-    .redes {
-        position: static;
+    
+    .data, .privacidade, .redes {
         width: 100%;
         justify-content: center;
         margin: 5px 0;
@@ -222,24 +300,182 @@ footer{
 }
 
 @media (max-width: 480px) {
-    .entrar,
-    .cadastrar {
-        width: 100px;
-        font-size: 14px;
+    section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 81.5vh;
+        width: 100%;
     }
 
-    .clicksHeader,
-    .botoesHeader {
-        flex-direction: column;
+    header{
+        display: flex;
+        width: 100%;
+        height: 9vh;
         align-items: center;
     }
 
+    footer{
+    background-color: #BBC5C7;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 9vh;
+    margin-top: 2px;
+    }
+
+    #cabecalho{
+        background-color: white;
+        display: flex;
+        width: 100%;
+        height: 60px;
+        justify-content: space-around;
+    }
+
+    .clicksHeader{
+        display: flex;
+        width: 60%;
+        height: 9vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botoesHeader{
+        display: flex;
+        width: 30%;
+        height: 9vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #Textos {
+        width: 50%;
+        margin-left: 30px;
+        margin-top: 50px;
+    }
+    
+    #Titulo, #subTitulo {
+        text-align: left;
+    }
+    
+    .fundoBoneco {
+        width: 40%;
+    }
+    
+    /* .data {
+        position: relative;
+        left: 50px;
+    }
+    
+    .privacidade {
+        position: relative;
+        right: 40px;
+    }
+
+    .entrar, .cadastrar {
+        width: 80px;
+        font-size: 12px;
+        padding: 3px;
+    }
+    
+    .refs {
+        font-size: 15px;
+    }
+    
+    .logoHeader {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .clicksHeader, .botoesHeader {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    #Titulo {
+        font-size: 2rem;
+    }
+    
+    #subTitulo {
+        font-size: 1rem;
+    }
+    
+    .dropdown-content {
+        position: static;
+        width: 100%;
+    }
+    
+    #user-area {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+    
     .privacidade {
         flex-direction: column;
         align-items: center;
     }
-
+    
     .textoPriv {
         margin: 5px 0;
+    } */
+}
+
+@media (min-width: 769px) {
+    section {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: 86vh;
+    }
+
+    header{
+        display: flex;
+        width: 100%;
+    }
+
+    #cabecalho{
+        display: flex;
+        width: 100%;
+        height: 60px;
+        align-items: center;
+    }
+
+    .clicksHeader{
+        display: flex;
+        width: 60%;
+        justify-content: space-around;
+    }
+    
+    .botoesHeader{
+        display: flex;
+        width: 30%;
+        align-items: center;
+    }
+    
+    #Textos {
+        width: 50%;
+        margin-left: 30px;
+        margin-top: 50px;
+    }
+    
+    #Titulo, #subTitulo {
+        text-align: left;
+    }
+    
+    .fundoBoneco {
+        width: 40%;
+    }
+    
+    .data {
+        position: relative;
+        left: 50px;
+    }
+    
+    .privacidade {
+        position: relative;
+        right: 40px;
     }
 }
