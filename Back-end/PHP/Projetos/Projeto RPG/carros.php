@@ -29,8 +29,11 @@
         <h1 class="cabTexto"> Asfalto Urbano </h1>
     </header>
     <section>
-        <?php echo $carros->__get('imagens'); ?>
-        <img class="imagem" src="source/<?php echo $carros->__get('imagens'); ?>.jpg" alt="carro select">
+    <?php 
+        var_dump($carros); // Isso deve mostrar a estrutura do objeto
+        echo $carros->__get('img'); // Verifique o valor retornado
+        ?>  
+        <img class="imagem" src="sources/<?php echo $carros->__get('img'); ?>.jpg" alt="carro select">
     </section>
 </body>
 
