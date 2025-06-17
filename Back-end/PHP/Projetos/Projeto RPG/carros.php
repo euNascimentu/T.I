@@ -28,12 +28,36 @@
     <header>
         <h1 class="cabTexto"> Asfalto Urbano </h1>
     </header>
-    <section>
-    <?php 
-        var_dump($carros); // Isso deve mostrar a estrutura do objeto
-        echo $carros->__get('img'); // Verifique o valor retornado
-        ?>  
-        <img class="imagem" src="sources/<?php echo $carros->__get('img'); ?>.jpg" alt="carro select">
+    <section id="sectionResult">
+        <div class="image2">
+            <img class="imagem2" src="source/<?php echo $carro->__get('imagens'); ?>.jpg" alt="carro select">
+        </div>
+        <article>
+            <div class="escolhaUser">
+                <h3 class="">Modelo: <?php echo $carro->__get('modelo'); ?></h3>
+                <h3 class="">Cor: <?php echo $carro->__get('cor'); ?> </h3>
+                <h3 class="">Marca: <?php echo $carro->__get('marca'); ?></h3>
+                <h3 class="">Categoria: <?php echo $carro->__get('categoria'); ?></h3>
+                <h3 class="">Velocidade: <?php echo $carro->__get('velocidade'); ?></h3>
+            </div>
+            <h1>
+                <?php
+                if ($modelo == 'Compass')
+                    echo "Versatilidade e Conforto sem Limites";
+                elseif ($modelo =='GT3RS')
+                    echo "Pura Adrenalina com Sofisticação";
+                elseif ($modelo =='PassatHighLine')
+                    echo "Elegância Alemã em Cada Detalhe";
+                elseif ($modelo =='GLA200')
+                    echo "Sofisticação Compacta";
+                elseif ($modelo =='R8')
+                    echo "O Supercarro Acessível";
+                ?>
+            </h1>
+        </article>
+        <footer>
+            <a id="botaoVoltar" href="index.HTML">Voltar</a>
+        </footer>
     </section>
 </body>
 

@@ -153,3 +153,85 @@ section{
 }
 
 /* ---------------------------------------- */
+
+#sectionResult{
+    background-color: #26303a7e;
+    display: flex;
+    justify-content: start;
+    flex-flow: row wrap;
+    
+    margin-top: 4%;
+    padding: 10px;
+    
+    width: 20vw;
+    height: 60vh;
+    border-radius: 21px;
+}
+
+.image2{
+    /* background-color: white; */
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagem2{
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+}
+
+article{
+    /* background-color: red; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    margin-top: 20px;
+}
+
+.escolhaUser{
+    /* background-color: beige; */
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 20vh;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-shadow: 0px 0px 8px #1771ca;
+}
+
+h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 25px;
+    color: lightgray;
+    text-shadow: 0px 0px 8px #1771ca;
+}
+
+footer{
+    /* background-color: lightblue; */
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+}
+
+#botaoVoltar{
+    background-color: #20364d;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    border: solid 1px #1771ca;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
