@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -18,36 +22,37 @@
 <body>
     <header>
         <div id="cabecalho">
-            <img class="logoHeader" src="../Source/Logo.png" alt="">
+            <a href="home.php">
+                <img class="logoHeader" src="../Source/Logo.png" alt="">
+            </a>
             <div class="clicksHeader">
-                <a class="refs" href=""> Quem somos? </a>
+                <a class="refs" href="quemSomos.php"> Quem somos? </a>
                 <a class="refs" href=""> Recursos </a>
-                <a class="refs" href=""> Planos e Preços </a>
+                <a class="refs" href="PlanosEprecos.php"> Planos e Preços </a>
             </div>
             <div class="botoesHeader">
-                <div id="user-area">
-                <?php if (isset($_SESSION['usuario_nome'])): ?>
-                    <div class="dropdown">
-                        <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario_nome']) ?> ▼</button>
-                    <div class="dropdown-content">
-                        <a href="perfil.php">Meu Perfil</a>
-                        <a href="pedidos.php">Meus Pedidos</a>
-                        <a href="logout.php">Sair</a>
-                    </div>
+    <div id="user-area">
+        <?php if (isset($_SESSION['usuario_nome'])): ?>
+            <div class="dropdown">
+                <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario_nome']) ?> ▼</button>
+                <div class="dropdown-content">
+                    <a href="logout.php">Sair</a>
                 </div>
-                <?php else: ?>
-                    <a href="index.php">Log In</a>
-                <?php endif; ?>
-                </div>
-                <a class="cadastrar" href='registros.php'> Assinar Agora </a>
             </div>
+        <?php else: ?>
+            <a class="entrar" href="index.php">Log In</a>
+            <a class="cadastrar" href='registros.php'>Assinar Agora</a>
+        <?php endif; ?>
+    </div>
+</div>
+
         </div>
     </header>
     <section>
         <div id="Textos">
             <div id="Titulo">
                 <P>Controle financeiro pessoal com toda
-                <h3 style="color: rgb(59, 101, 190); text-shadow: 0px 0px 7px rgb(102, 133, 199);">praticidade</h3> que
+                <h3 class="CorFundo">praticidade</h3> que
                 a
                 planilha não te oferece!</P>
             </div>
@@ -103,4 +108,25 @@
         </div>
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropbtn = document.querySelector('.dropbtn');
+        const dropdown = document.querySelector('.dropdown-content');
+
+        if (dropbtn && dropdown) {
+            dropbtn.addEventListener('click', function () {
+                dropdown.classList.toggle('show');
+            });
+
+            // Fecha o dropdown ao clicar fora
+            window.addEventListener('click', function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                }
+            });
+        }
+    });
+</script>
 </html>
