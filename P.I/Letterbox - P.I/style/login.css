@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container{
+  background-color: #3C1F70;
+  width: 100vw;
+  height: 100vh;
+}
+
+section{
+    background-color: #D1B513;
+    display: flex;
+    flex-flow: column;
+    width: 23vw;
+    height: 27vh;
+    margin: auto;
+    margin-top: 165px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#header{
+  display: flex;
+  width: 100vw;
+  height: 13vh;
+}
+
+.logo{
+  width: 120px;
+  height: 120px;
+}
+
+#headerCentral{
+  color: #5827CC;
+  display: flex;
+  height: 30px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.inputs{
+  /* background-color: red; */
+  width: 100%;
+  height: 160px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+p{
+  color: #5827CC;
+  margin-top: 10px;
+  font-size: 12px;
+  font-family: "Press Start 2P", system-ui;
+}
+
+input{
+  background-color: white;
+  border: double 3px #D1B513;
+  border-radius: 12px;
+  margin-top: 11px;
+  width: 55%;
+  height: 20px;
+  padding: 5px;
+}
+
+footer{
+  /* background-color: blue; */
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  height: 30px;
+}
+
+/* Botao */
+
+/* === removing default button style ===*/
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #5827CC;
+  --fs-size: 1.5em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Press Start 2P", system-ui;
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
