@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div id="container">
         <header id="header">
             <img class="logo" src="source/logoGameCut-Remove.png" alt="Logo">
         </header>
@@ -28,15 +28,25 @@
                 </div>
                 <div class="senha">
                     <p>SENHA</p>
-                    <input type="text">
+                    <input type="password">
                 </div>
             </div>
-            <footer>
-                <button class="button" data-text="Awesome">
-                    <span class="actual-text">&nbsp;Logar!&nbsp;</span>
-                    <span aria-hidden="true" class="hover-text">&nbsp;Logar!&nbsp;</span>
-                </button>
-            </footer>
+            <form action="index.php" method="post">
+                <footer>
+                    <div class="fundoBotao">
+                        <button class="button" type="submit" data-text="Awesome">
+                            <span class="actual-text">&nbsp;Logar!&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;Logar!&nbsp;</span>
+                        </button>
+                    </div>
+                    <div class="fundoCadastro">
+                        <a href="teste.html" class="button2" data-text="Awesome">
+                            <span class="actual-text">&nbsp;Cadastrar!&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;Cadastrar!&nbsp;</span>
+                        </a>
+                    </div>
+                </footer>
+            </form>
         </section>
     </div>
 </body>

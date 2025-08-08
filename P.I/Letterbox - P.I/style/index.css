@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    background-color: #3C1F70;
+    height: 100vh;
+    width: 100vw;
+}
+
+header{
+    background-color: #D1B513;
+    display: flex;
+    width: 60%;
+    height: 10vh;
+    margin: auto;
+}
+
+section{
+    background-color: rgba(0, 0, 0, 0.384);
+    display: flex;
+    width: 60%;
+    height: 90%;
+    margin: auto;
+}

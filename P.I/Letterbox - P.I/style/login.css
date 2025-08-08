@@ -5,7 +5,7 @@
     padding: 0px;
 }
 
-.container{
+#container{
   background-color: #3C1F70;
   width: 100vw;
   height: 100vh;
@@ -24,21 +24,26 @@ section{
 }
 
 #header{
+  background-color: rgba(0, 0, 0, 0.404);
   display: flex;
   width: 100vw;
   height: 13vh;
+  /* justify-content: center; */
 }
 
 .logo{
+  margin-left: 20px;
   width: 120px;
   height: 120px;
 }
 
 #headerCentral{
+  /* background-color: red; */
   color: #5827CC;
   display: flex;
   height: 30px;
   width: 100%;
+  margin-top: 6px;
   align-items: center;
   justify-content: center;
   font-size: 15px;
@@ -46,10 +51,11 @@ section{
 }
 
 .inputs{
-  background-color: red;
+  /* background-color: red; */
   width: 100%;
-  height: 160px;
-  margin-top: 30px;
+  height: 120px;
+  margin-top: 3px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
   flex-flow: row wrap;
@@ -94,13 +100,32 @@ input{
 footer{
   /* background-color: blue; */
   display: flex;
-  margin-top: 5px;
+  flex-flow: column;
+  margin-top: 15px;
   justify-content: center;
-  height: 30px;
+  height: 60px;
 }
 
-/* Botao */
+.fundoBotao{
+  /* background-color: red; */
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
 
+.fundoCadastro{
+    /* background-color: red; */
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Botao Logar */
 /* === removing default button style ===*/
 .button {
   margin: 0;
@@ -122,6 +147,7 @@ footer{
   font-size: var(--fs-size);
   font-family: "Press Start 2P", system-ui;
   position: relative;
+  margin-left: 45px;
   text-transform: uppercase;
   color: white;
   -webkit-text-stroke: 1px var(--text-stroke-color);
@@ -136,11 +162,57 @@ footer{
   inset: 0;
   border-right: var(--border-right) solid var(--animation-color);
   overflow: hidden;
-  transition: 0.5s;
+  transition: 0.7s;
   -webkit-text-stroke: 1px var(--animation-color);
 }
 /* hover */
 .button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+/* Botao Cadastrar */
+
+.button2 {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* button styling */
+.button2 {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255,255,255,0.6);
+  --animation-color: #5827CC;
+  --fs-size: 1em;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Press Start 2P", system-ui;
+  position: relative;
+  margin-left: 45px;
+  text-transform: uppercase;
+  color: white;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.7s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button2:hover .hover-text {
   width: 100%;
   filter: drop-shadow(0 0 23px var(--animation-color))
 }
