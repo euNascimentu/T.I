@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> GameCut </title>
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/cadastrar.css">
     <style>
         /*Press start 2p*/
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
@@ -20,8 +20,12 @@
             <img class="logo" src="source/logoGameCut-Remove.png" alt="Logo">
         </header>
         <section>
-            <header id="headerCentral"> Bem-vindo ao GameCut!</header>
+            <header id="headerCentral"> GameCut!</header>
             <div class="inputs">
+                <div class="nome">
+                    <p>Usuário</p>
+                    <input type="text">
+                </div>
                 <div class="email">
                     <p>EMAIL</p>
                     <input type="text">
@@ -33,16 +37,13 @@
             </div>
             <form action="index.php" method="post">
                 <footer>
-                    <div class="fundoBotao">
-                        <button class="button" type="submit" data-text="Awesome">
-                            <span class="actual-text">&nbsp;Logar!&nbsp;</span>
-                            <span aria-hidden="true" class="hover-text">&nbsp;Logar!&nbsp;</span>
-                        </button>
+                    <div class="gifCat">
+                        <img class="cat" src="source/gifCadastro.gif" alt="">
                     </div>
                     <div class="fundoCadastro">
-                        <a href="cadastrar.php" class="button2" data-text="Awesome">
-                            <span class="actual-text">&nbsp;Cadastrar!&nbsp;</span>
-                            <span aria-hidden="true" class="hover-text">&nbsp;Cadastrar!&nbsp;</span>
+                        <a href="index.php" class="button2" data-text="Awesome">
+                            <span class="actual-text">&nbsp;Finalizar!&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;Finalizar!&nbsp;</span>
                         </a>
                     </div>
                 </footer>
