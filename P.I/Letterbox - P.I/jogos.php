@@ -26,6 +26,27 @@ if ($result && $result->num_rows > 0) {
         $usuarios[] = $row;
     }
 }
+
+/* RAWG API */
+
+// Sua chave de API (substitua pelo valor correto)
+$apiKey = "2bf7427a54a148aa9674a33abf59fa0a";
+
+// URL da API RAWG
+$url = "https://api.rawg.io/api/games?key={$apiKey}&dates=2019-09-01,2019-09-30&platforms=18,1,7";
+
+// Fazendo a requisição
+$response = file_get_contents($url);
+
+// Convertendo JSON para array associativo
+$data = json_decode($response, true);
+
+// Pegando o primeiro jogo
+$primeiroJogo = $data["results"][0];
+$gameName = $primeiroJogo["name"];
+$gameImage = $primeiroJogo["background_image"];
+$releaseDate = $primeiroJogo["released"];
+
 ?>
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -33,7 +54,7 @@ if ($result && $result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> GameCut, Home! </title>
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/jogos.css">
     <style>
         /*Press start 2p*/
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
@@ -48,8 +69,7 @@ if ($result && $result->num_rows > 0) {
             </div>
             <div id="fundoButtons">
                 <div class="botoesHeader">
-                    <a class="a" href="">home</a>
-                    <a class="a" href="jogos.php">Jogos</a>
+                    <a class="a" href="index.php">home</a>
                     <a class="a" href="">Biblioteca</a>
                 </div>
                 <div class="perfilLogin">
@@ -70,67 +90,36 @@ if ($result && $result->num_rows > 0) {
                 <?php endif; ?>
             </div>
         </header>
-        <div id="Banner">
-            <img class="fotoBan" src="source/banner.gif" alt="">
-        </div>
-
         <section>
-            <p class="tituloConteudo">Lançamentos</p>
+            <p class="tituloConteudo">Jogos</p>
             <article>
+        <?php if (!empty($data["results"])): ?>
+            <?php foreach ($data["results"] as $jogo): ?>
                 <div id="Cards">
-                    <a href="">
+                    <a href="#">
                         <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
+                            <img class="fotoCard" src="<?= htmlspecialchars($jogo["background_image"]) ?>" alt="<?= htmlspecialchars($jogo["name"]) ?>">
                         </div>
                         <div class="textoCard">
-                            estou aqui
+                            <?= htmlspecialchars($jogo["name"]) ?>
+                        </div>
+                        <div class="categoria">
+                            <?= htmlspecialchars($jogo["genres"]) ?>
                         </div>
                     </a>
                 </div>
-
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
-
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
-
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
-            </article>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum jogo encontrado na API.</p>
+        <?php endif; ?>
+    </article>
         </section>
 </body>
 <script>
 setTimeout(() => {
   document.body.classList.remove('bg-animado');
   document.body.classList.add('bg-estatico');
-}, 14500);
+}, 10000);
 
 </script>
 </html>
-<?php
-$conn->close(); // Fechar conexão
-?>
