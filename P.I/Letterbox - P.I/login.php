@@ -21,27 +21,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Falha na conexão: " . $conn->connect_error);
     }
 
-    // Agora buscando o nome junto com a senha
-    $stmt = $conn->prepare("SELECT nomeUsuario, senhaUsuario FROM Usuario WHERE emailUsuario = ?");
+    // Buscar idUsuario, nome e senha
+    $stmt = $conn->prepare("SELECT idUsuario, nomeUsuario, senhaUsuario FROM Usuario WHERE emailUsuario = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($nomeUsuario, $senhaHash);
+        $stmt->bind_result($idUsuario, $nomeUsuario, $senhaHash);
         $stmt->fetch();
 
         if ($senha === $senhaHash) {
             // Salva dados do usuário na sessão
             $_SESSION['usuario'] = [
+                'idUsuario' => $idUsuario,   // ✅ ID agora armazenado
                 'nome' => $nomeUsuario,
                 'email' => $email
             ];
 
-            // Redireciona para index.php com flag pra alert
             echo "<script>
                 alert('Bem-vindo! {$nomeUsuario}, que a diversão esteja contigo!');
-                window.location = 'index.php';
+                window.location = 'perfil.php';
             </script>";
             exit;
         } else {
@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 
 

@@ -1,29 +1,55 @@
-<?php
-session_start(); // Sempre iniciar a sessão antes de qualquer HTML
+<?php 
+session_start();
 
 // ===== Conexão com o banco =====
-$host = "localhost";      // Servidor do banco
-$usuario = "root";        // Usuário MySQL
-$senha = "";              // Senha MySQL (troque se tiver)
-$banco = "PIBD";          // Nome do banco
-
+$host = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "PIBD";
 $conn = new mysqli($host, $usuario, $senha, $banco);
 
-// Testar conexão
 if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
+$conn->set_charset("utf8");
 
-$conn->set_charset("utf8"); // Evitar problemas com acentos
+/* RAWG API */
+$apiKey = "2bf7427a54a148aa9674a33abf59fa0a";
 
-// ===== Buscar todos os usuários =====
-$sql = "SELECT * FROM Usuario";
+// // ===== Buscar 3 jogos mais recentes =====
+$sql = "SELECT * FROM Jogo ORDER BY idJogo DESC LIMIT 3";
 $result = $conn->query($sql);
+$jogos = [];
 
-$usuarios = [];
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $usuarios[] = $row;
+        // Buscar imagem e informações na API RAWG
+        $nomeJogo = urlencode($row['nomeJogo']);
+        $url = "https://api.rawg.io/api/games?key={$apiKey}&search={$nomeJogo}";
+        $response = @file_get_contents($url);
+        
+        if ($response !== false) {
+            $data = json_decode($response, true);
+            if (!empty($data["results"])) {
+                $apiJogo = $data["results"][0];
+                $row['imagem'] = $apiJogo["background_image"] ?? 'source/sem-imagem.jpg';
+                $row['genero'] = $apiJogo["genres"][0]["name"] ?? $row['genero'] ?? 'Desconhecido';
+                $row['notaMedia'] = $apiJogo["rating"] ?? '0';
+                $row['descricao'] = $apiJogo["description_raw"] ?? '';
+            } else {
+                $row['imagem'] = 'source/sem-imagem.jpg';
+                $row['genero'] = $row['genero'] ?? 'Desconhecido';
+                $row['notaMedia'] = '0';
+                $row['descricao'] = '';
+            }
+        } else {
+            $row['imagem'] = 'source/sem-imagem.jpg';
+            $row['genero'] = $row['genero'] ?? 'Desconhecido';
+            $row['notaMedia'] = '0';
+            $row['descricao'] = '';
+        }
+        
+        $jogos[] = $row;
     }
 }
 ?>
@@ -32,105 +58,119 @@ if ($result && $result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> GameCut, Home! </title>
+    <title>GameCut, Home!</title>
     <link rel="stylesheet" href="style/index.css">
     <style>
-        /*Press start 2p*/
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
-        /*Bungee*/
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Press+Start+2P&display=swap');
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:#251831;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            z-index:9999;
+            color:white;
+            font-family:"Bebas Neue", sans-serif;
+        }
+
+        .spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #5827cc;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom:20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
     </style>
 </head>
 <body class="bg-animado">
-        <header>
-            <div id="fundologo">
-                <img class="logo" src="source/logoRoxa-Remove.png" alt="">
-            </div>
-            <div id="fundoButtons">
-                <div class="botoesHeader">
-                    <a class="a" href="">home</a>
-                    <a class="a" href="jogos.php">Jogos</a>
-                    <a class="a" href="">Biblioteca</a>
-                </div>
-                <div class="perfilLogin">
-                <?php if (isset($_SESSION['usuario'])): ?>
-                <div class="dropdown">
-                    <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></button>
-                        <div class="dropdown-content">
-                            <a class="a2" href="perfil.php">Perfil</a>
-                            <a class="a2" href="logout.php">Sair</a>
-                        </div>
-                </div>
-                <div class="fotoPerfil">
-                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
-                </div>
-                <?php else: ?>
-                    <!-- Usuário NÃO logado -->
-                    <a href="login.php">login</a>
-                <?php endif; ?>
-            </div>
-        </header>
-        <div id="Banner">
-            <img class="fotoBan" src="source/banner.gif" alt="">
+
+    <!-- Tela de loading -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Carregando jogos...</p>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <header>
+        <div id="fundologo">
+            <img class="logo" src="source/logoRoxa-Remove.png" alt="">
         </div>
+        <div id="fundoButtons">
+            <div class="botoesHeader">
+                <a class="a" href="">home</a>
+                <a class="a" href="jogos.php">Jogos</a>
+                <a class="a" href="">Biblioteca</a>
+            </div>
+            <div class="perfilLogin">
+            <?php if (isset($_SESSION['usuario'])): ?>
+            <div class="dropdown">
+                <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></button>
+                    <div class="dropdown-content">
+                        <a class="a2" href="perfil.php">Perfil</a>
+                        <a class="a2" href="logout.php">Sair</a>
+                    </div>
+            </div>
+            <div class="fotoPerfil">
+                <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+            </div>
+            <?php else: ?>
+                <a href="login.php">login</a>
+            <?php endif; ?>
+        </div>
+    </header>
 
-        <section>
-            <p class="tituloConteudo">Lançamentos</p>
-            <article>
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
+    <div id="Banner">
+        <img class="fotoBan" src="source/banner.gif" alt="">
+    </div>
 
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
+    <section>
+        <p class="tituloConteudo">Lançamentos</p>
+        <article class="l-container" id="gameCards" style="display:none;">
+        <?php foreach ($jogos as $jogo): ?>
+            <div class="b-game-card">
+                <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagem']) ?>');">
+                    <div class="b-game-card__hover">
+                        <h3 class="b-game-card__title"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
+                        <p class="b-game-card__genre"><?= htmlspecialchars($jogo['genero']) ?></p>
+                        <p class="b-game-card__rating">⭐ <?= htmlspecialchars($jogo['notaMedia']) ?></p>
+                        <?php if(!empty($jogo['descricao'])): ?>
+                        <p class="b-game-card__desc"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                        <?php endif; ?>
+                    </div>
                 </div>
+            </div>
+        <?php endforeach; ?>
+        </article>
+    </section>
 
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
-
-                <div id="Cards">
-                    <a href="">
-                        <div class="fundoFotoCard">
-                            <img class="fotoCard" src="source/varanda.gif" alt="">
-                        </div>
-                        <div class="textoCard">
-                            estou aqui
-                        </div>
-                    </a>
-                </div>
-            </article>
-        </section>
 </body>
 <script>
-setTimeout(() => {
-  document.body.classList.remove('bg-animado');
-  document.body.classList.add('bg-estatico');
-}, 14500);
-
+    // Simular carregamento com async
+    document.addEventListener("DOMContentLoaded", async () => {
+        // Aqui você pode adicionar um fetch async se precisar, mas já temos PHP carregado
+        await new Promise(resolve => setTimeout(resolve, 1000)); // simula 1s de delay
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('gameCards').style.display = 'flex';
+        
+        // Troca fundo animado para estático
+        setTimeout(() => {
+            document.body.classList.remove('bg-animado');
+            document.body.classList.add('bg-estatico');
+        }, 10000);
+    });
 </script>
 </html>
-<?php
-$conn->close(); // Fechar conexão
-?>
