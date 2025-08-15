@@ -12,6 +12,7 @@ $conn->set_charset("utf8");
 
 /* RAWG API */
 $apiKey = "2bf7427a54a148aa9674a33abf59fa0a";
+$atualizarAposHoras = 24; // cache válido por 24 horas
 
 // Buscar todos os jogos
 $sql = "SELECT * FROM Jogo";
@@ -20,30 +21,58 @@ $jogos = [];
 
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $nomeJogo = urlencode($row['nomeJogo']);
-        $url = "https://api.rawg.io/api/games?key={$apiKey}&search={$nomeJogo}";
-        $response = @file_get_contents($url);
-        
-        if ($response !== false) {
-            $data = json_decode($response, true);
-            if (!empty($data["results"])) {
-                $apiGame = $data["results"][0];
-                $row['imagem'] = $apiGame["background_image"] ?? 'source/sem-imagem.jpg';
-                $row['notaMedia'] = $apiGame["rating"] ?? 'N/A';
-                $row['genero'] = !empty($apiGame["genres"]) ? $apiGame["genres"][0]["name"] : $row['generoJogo'];
-                $row['descricao'] = $apiGame["short_screenshots"][0]["image"] ?? '';
-            } else {
-                $row['imagem'] = 'source/sem-imagem.jpg';
-                $row['notaMedia'] = 'N/A';
-                $row['genero'] = $row['generoJogo'];
-                $row['descricao'] = '';
+
+        $precisaAtualizar = true;
+
+        if (!empty($row['ultimaAtualizacaoApi'])) {
+            $ultimaAtualizacao = strtotime($row['ultimaAtualizacaoApi']);
+            $agora = time();
+
+            if (($agora - $ultimaAtualizacao) < ($atualizarAposHoras * 3600)) {
+                $precisaAtualizar = false; // dados ainda válidos
             }
-        } else {
-            $row['imagem'] = 'source/sem-imagem.jpg';
-            $row['notaMedia'] = 'N/A';
-            $row['genero'] = $row['generoJogo'];
-            $row['descricao'] = '';
         }
+
+        // Só chama API se precisar
+        if ($precisaAtualizar) {
+            $nomeJogo = urlencode($row['nomeJogo']);
+            $url = "https://api.rawg.io/api/games?key={$apiKey}&search={$nomeJogo}";
+            $response = @file_get_contents($url);
+
+            if ($response !== false) {
+                $data = json_decode($response, true);
+                if (!empty($data["results"])) {
+                    $apiGame = $data["results"][0];
+
+                    // Variáveis para bind_param
+                    $imagemApi = $apiGame["background_image"] ?? '';
+                    $notaMediaApi = $apiGame["rating"] ?? 0;
+                    $generoApi = !empty($apiGame["genres"]) ? $apiGame["genres"][0]["name"] : $row['generoJogo'];
+                    $descricaoApi = $apiGame["short_screenshots"][0]["image"] ?? '';
+                    $idJogo = $row['idJogo'];
+
+                    // Atualiza no banco
+                    $stmt = $conn->prepare("UPDATE Jogo 
+                        SET imagemApi=?, notaMediaApi=?, generoApi=?, descricaoApi=?, ultimaAtualizacaoApi=NOW()
+                        WHERE idJogo=?");
+                    $stmt->bind_param("sdssi", $imagemApi, $notaMediaApi, $generoApi, $descricaoApi, $idJogo);
+                    $stmt->execute();
+                    $stmt->close();
+
+                    // Atualiza variável local
+                    $row['imagemApi'] = $imagemApi;
+                    $row['notaMediaApi'] = $notaMediaApi;
+                    $row['generoApi'] = $generoApi;
+                    $row['descricaoApi'] = $descricaoApi;
+                }
+            }
+        }
+
+        // Preenche fallback caso algo falhe
+        $row['imagemApi'] = $row['imagemApi'] ?? 'source/sem-imagem.jpg';
+        $row['notaMediaApi'] = $row['notaMediaApi'] ?? 'N/A';
+        $row['generoApi'] = $row['generoApi'] ?? $row['generoJogo'];
+        $row['descricaoApi'] = $row['descricaoApi'] ?? '';
 
         $jogos[] = $row;
     }
@@ -97,13 +126,13 @@ if ($result && $result->num_rows > 0) {
     <article class="l-container">
 <?php foreach ($jogos as $jogo): ?>
     <div class="b-game-card">
-        <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagem']) ?>');">
+        <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagemApi']) ?>');">
             <div class="b-game-card__hover">
                 <h3 class="b-game-card__title"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
-                <p class="b-game-card__genre"><?= htmlspecialchars($jogo['genero']) ?></p>
-                <p class="b-game-card__rating">⭐ <?= htmlspecialchars($jogo['notaMedia']) ?></p>
-                <?php if(!empty($jogo['descricao'])): ?>
-                <p class="b-game-card__desc"><?= htmlspecialchars($jogo['descricao']) ?></p>
+                <p class="b-game-card__genre"><?= htmlspecialchars($jogo['generoApi']) ?></p>
+                <p class="b-game-card__rating">⭐ <?= htmlspecialchars($jogo['notaMediaApi']) ?></p>
+                <?php if(!empty($jogo['descricaoApi'])): ?>
+                <p class="b-game-card__desc"><?= htmlspecialchars($jogo['descricaoApi']) ?></p>
                 <?php endif; ?>
             </div>
         </div>
