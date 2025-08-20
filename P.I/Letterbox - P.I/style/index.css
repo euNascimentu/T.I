@@ -166,7 +166,7 @@ header{
     object-fit: cover;      
 }
 
-section{
+#section{
     background-color: #251831; 
     display: flex;
     flex-flow: column;
@@ -239,6 +239,7 @@ section{
 
 .b-game-card:hover {
     transform: scale(1.08);
+    box-shadow: 0px 0px 10px 4px #fdc20067;
 }
 
 .b-game-card__cover {
@@ -320,15 +321,14 @@ section{
         }
 
 #descSite{
-    background-color: #251831; 
+    background-color: #251831;
     display: flex;
     flex-flow: column;
     width: 58%;
-    height: 65vh;
 
     /*Espaçamentos*/
     margin: auto;
-    margin-bottom: 14px;
+    margin-bottom: 160px;
     margin-top: 20px;
 
     /*Curvas Cantos*/
@@ -338,99 +338,144 @@ section{
     border-top-left-radius: 40px;
 }
 
-.container {
-  height: 300px;
-  width: 100%;
-  left: calc(50% - 300px);
-  display: flex;
-  justify-content: center;
+.euFoto{
+    /* background-color: beige; */
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 30px;
+    margin-bottom: px;
 }
 
-.card {
-  display: flex;
-  height: 280px;
-  width: 200px;
-  background-color: #17141d;
-  border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000;
-/*   margin-left: -50px; */
-  transition: 0.4s ease-out;
-  position: relative;
-  left: 0px;
+.fotoDevs{
+    /* background-color: white; */
+    width: 180px;
+    height: 230px;
 }
 
-.card:not(:first-child) {
-    margin-left: -50px;
+
+.fotoDevs:hover #fernando {
+    transform: translate(0px, -8px);
 }
 
-.card:hover {
-  transform: translateY(-20px);
-  transition: 0.4s ease-out;
+.fotoDevs:hover #fernando {
+    box-shadow: 0px 0px 10px 4px #7165AE;
 }
 
-.card:hover ~ .card {
-  position: relative;
-  left: 50px;
-  transition: 0.4s ease-out;
+/**/
+.fotoDevs:hover #filipe {
+    transform: translate(0px, -8px);
 }
 
-.title {
-  color: white;
-  font-weight: 300;
-  position: absolute;
-  left: 20px;
-  top: 15px;
+.fotoDevs:hover #filipe {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+
+}
+/**/
+.fotoDevs:hover #pita {
+    transform: translate(0px, -8px);
 }
 
-.bar {
-  position: absolute;
-  top: 100px;
-  left: 20px;
-  height: 5px;
-  width: 150px;
+.fotoDevs:hover #pita {
+    box-shadow: 0px 0px 10px 4px #7165AE;
 }
 
-.emptybar {
-  background-color: #2e3033;
-  width: 100%;
-  height: 100%;
+/**/
+.fotoDevs:hover #kauan {
+    transform: translate(0px, -8px);
 }
 
-.filledbar {
-  position: absolute;
-  top: 0px;
-  z-index: 3;
-  width: 0px;
-  height: 100%;
-  background: rgb(0,154,217);
-  background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
-  transition: 0.6s ease-out;
+.fotoDevs:hover #kauan {
+    box-shadow: 0px 0px 10px 4px #7165AE;
 }
 
-.card:hover .filledbar {
-  width: 120px;
-  transition: 0.4s ease-out;
+/**/
+.fotoDevs:hover #joao {
+    transform: translate(0px, -8px);
 }
 
-.circle {
-  position: absolute;
-  top: 150px;
-  left: calc(50% - 60px);
+.fotoDevs:hover #joao {
+    box-shadow: 0px 0px 10px 4px #7165AE;
 }
 
-.stroke {
-  stroke: white;
-  stroke-dasharray: 360;
-  stroke-dashoffset: 360;
-  transition: 0.6s ease-out;
+/**/
+.fotoDevs:hover #gaby {
+    transform: translate(0px, -8px);
 }
 
-svg {
-  fill: #17141d;
-  stroke-width: 2px;
+.fotoDevs:hover #gaby {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+
 }
 
-.card:hover .stroke {
-  stroke-dashoffset: 100;
-  transition: 0.6s ease-out;
+
+#fernando{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#joao{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#gaby{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#filipe{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#kauan{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#pita{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+
+.bioDevs{
+    /* background-color: skyblue; */
+    width: 58%;
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+    padding: 20px;
+    color: white;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    text-align: center;
 }

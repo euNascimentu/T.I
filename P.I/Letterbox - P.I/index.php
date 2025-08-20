@@ -15,6 +15,7 @@ $conn->set_charset("utf8");
 
 /* RAWG API */
 $apiKey = "2bf7427a54a148aa9674a33abf59fa0a";
+$atualizarAposHoras = 24; // cache válido por 24 horas
 
 // // ===== Buscar 3 jogos mais recentes =====
 $sql = "SELECT * FROM Jogo ORDER BY idJogo DESC LIMIT 3";
@@ -137,7 +138,7 @@ if ($result && $result->num_rows > 0) {
         <img class="fotoBan" src="source/banner.gif" alt="">
     </div>
 
-    <section>
+    <section id="section">
         <p class="tituloConteudo">Lançamentos</p>
         <article class="l-container" id="gameCards" style="display:none;">
         <?php foreach ($jogos as $jogo): ?>
@@ -159,64 +160,84 @@ if ($result && $result->num_rows > 0) {
 
     <section id="descSite">
         <p class="tituloConteudo"> Quem somos? </p>
-        <!-- <article id="bgCardDesc">
-            <div class="container">
-              <div class="card">
-                <h3 class="title">Card 1</h3>
-                <div class="bar">
-                  <div class="emptybar"></div>
-                  <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="stroke" cx="60" cy="60" r="50"/>
-                </svg>
-                </div>
-              </div>
-              <div class="card">
-                <h3 class="title">Card 2</h3>
-                <div class="bar">
-                  <div class="emptybar"></div>
-                  <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="stroke" cx="60" cy="60" r="50"/>
-                </svg>
-                </div>
-              </div>
-              <div class="card">
-                <h3 class="title">Card 3</h3>
-                <div class="bar">
-                  <div class="emptybar"></div>
-                  <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="stroke" cx="60" cy="60" r="50"/>
-                </svg>
-                </div>
-              </div>
-              <div class="card">
-                <h3 class="title">Card 4</h3>
-                <div class="bar">
-                  <div class="emptybar"></div>
-                  <div class="filledbar"></div>
-                </div>
-                <div class="circle">
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-                  <circle class="stroke" cx="60" cy="60" r="50"/>
-                </svg>
-                </div>
-              </div>
-            </div>
-        </article> -->
 
-        
+        <div class="euFoto">
+            <div class="fotoDevs">
+                <img id="fernando" src="source/fernando.jpg" alt="">
+            </div>
+
+            <div class="fotoDevs">
+                <img id="pita" src="source/fernando.jpg" alt="">
+            </div>
+
+            <div class="fotoDevs">
+                <img id="filipe" src="source/fernando.jpg" alt="">
+            </div>
+
+            <div class="fotoDevs">
+                <img id="gaby" src="source/fernando.jpg" alt="">
+            </div>
+            
+            <div class="fotoDevs">
+                <img id="kauan" src="source/fernando.jpg" alt="">
+            </div>
+
+            <div class="fotoDevs">
+                <img id="joao" src="source/fernando.jpg" alt="">
+            </div>
+        </div>
+            
+        <div class="bioDevs">
+            <p id="bio">
+                Selecione um desenvolvedor para saber mais!
+            </p>
+        </div>
     </section>
 
 </body>
 <script>
+    
+    var a = window.document.getElementById('fernando')
+    var b = window.document.getElementById('pita')
+    var c = window.document.getElementById('filipe')
+    var d = window.document.getElementById('kauan')
+    var e = window.document.getElementById('gaby')
+    var f = window.document.getElementById('joao')
+    var bio = window.document.getElementById('bio')
+
+    a.addEventListener('click', fernando);
+    b.addEventListener('click', pita);
+    c.addEventListener('click', filipe);
+    d.addEventListener('click', kauan);
+    e.addEventListener('click', gaby);
+    f.addEventListener('click', joao);
+
+    function fernando(){
+        bio.innerText = 'Fernando, Web Developer, 20 anos, estudante de Análise e Desenvolvimento de Sistemas. Apaixonado por tecnologia e desenvolvimento web, sempre buscando aprender e inovar. Auxiliar no desenvolvimento do GameCut, um site dedicado a jogos e entretenimento digital.';
+        }
+
+    function filipe(){
+        bio.innerText = 'Filipe. Mobile Developer, '
+        }    
+        
+    function kauan(){
+        bio.innerText = 'KAUAN!'
+        }
+        
+    function pita(){
+        bio.innerText = 'Pedro, Mobile Developer, 19 anos, estudante de Análise e Desenvolvimento de Sistemas. Entusiasta de tecnologia e desenvolvimento mobile, sempre buscando aprender e inovar. Responsável pelo desenvolvimento da parte mobile do GameCut, um site dedicado a jogos e entretenimento digital.'
+        }
+        
+    function gaby(){
+        bio.innerText = 'GABY!'
+        }
+        
+    function joao(){
+        bio.innerText = 'JOÃO!'
+        }
+
+
+
     // Simular carregamento com async
     document.addEventListener("DOMContentLoaded", async () => {
         // Aqui você pode adicionar um fetch async se precisar, mas já temos PHP carregado

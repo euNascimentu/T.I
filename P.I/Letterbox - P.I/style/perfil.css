@@ -8,7 +8,7 @@
 }
 
 body.bg-animado {
-    background-image: url("../source/2016 pixel art - Jason Tammemagi.gif");
+    background-image: url("../source/gif.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -16,8 +16,8 @@ body.bg-animado {
 }
 
 body.bg-estatico {
-    background-image: url("../source/2016 pixel art - Jason Tammemagi frame1.png");
     background-repeat: no-repeat;
+    background-image: url("../source/gifFramed1.png");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -27,10 +27,9 @@ body.bg-estatico {
 header{
     background-color: #fdc200;
     display: flex;
-    width: 60%;
+    width: 48%;
     height: 7vh;
     margin: auto;
-    justify-content: space-between;
     align-items: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -41,20 +40,21 @@ header{
  
 #fundologo{
     /* background-color: red; */
-    height: 8vh;
+    height: 7vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-left-radius: 10px;
 }
  
 .logo{
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
 }
  
 #fundoButtons{
     /* background-color: beige; */
-    width: 90%;
+    width: 88%;
     height: 7vh;
     display: flex;
     align-items: center;
@@ -173,10 +173,11 @@ header{
 /* Perfil Container */
 .perfil-container {
     background-color: #251831;
-    width: 58%;
+    width: 48%;
     margin: 20px auto;
     padding: 30px 20px;
-    border-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     color: white;
     font-family: 'Arial', sans-serif;

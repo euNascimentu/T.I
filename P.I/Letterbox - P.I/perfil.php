@@ -48,7 +48,6 @@ $planejados = $stmt_planejados->get_result();
     <meta charset="UTF-8">
     <title>Perfil - GameCut</title>
     <link rel="stylesheet" href="style/perfil.css">
-    <link rel="stylesheet" href="style/index.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
@@ -163,47 +162,11 @@ $planejados = $stmt_planejados->get_result();
                         <h3 class="jogo-titulo"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
                     </div>
                 <?php endwhile; ?>
-            <?php else: ?>
-                <p class="mensagem-vazia">Nenhum jogo favorito adicionado ainda.</p>
-            <?php endif; ?>
+                <?php else: ?>
+                    <p class="mensagem-vazia">Nenhum jogo favorito adicionado ainda.</p>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
-
-    <!-- Planejo Jogar -->
-    <div class="secao-jogos">
-        <h2 class="titulo-secao">Planejo Jogar</h2>
-        <div class="lista-jogos">
-            <?php if ($planejados && $planejados->num_rows > 0): ?>
-                <?php while ($jogo = $planejados->fetch_assoc()): ?>
-                    <div class="jogo-card" data-idrawg="<?= htmlspecialchars($jogo['idJogo']) ?>">
-                        <div class="jogo-imagem">
-                            <span>Carregando imagem...</span>
-                        </div>
-                        <h3 class="jogo-titulo"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
-                        <form action="cancelar_planejar.php" method="post" style="text-align: center; margin: 10px;">
-                            <input type="hidden" name="idJogo" value="<?= $jogo['idJogo'] ?>">
-                            <button type="submit" class="botao-acoes cancelar">Cancelar Planejamento</button>
-                        </form>
-                    </div>
-                <?php endwhile; ?>
-            <?php else: ?>
-                <p class="mensagem-vazia">Nenhum jogo planejado ainda.</p>
-            <?php endif; ?>
-        </div>
-
-        <!-- Form adicionar planejado -->
-        <button id="btnAdicionarPlanejar" class="botao-acoes" style="margin-top: 15px;">Adicionar Jogo ao Planejo Jogar</button>
-
-        <form id="formAdicionarPlanejar" action="adicionar_planejar.php" method="post" style="display:none; margin-top: 15px; position: relative;">
-            <label for="buscaJogo">Buscar Jogo:</label>
-            <input type="text" id="buscaJogo" placeholder="Digite o nome do jogo" autocomplete="off" required>
-            <div id="sugestoesJogos"></div>
-            <input type="hidden" name="idJogo" id="idJogoSelecionado">
-            <input type="hidden" name="nomeJogo" id="nomeJogoSelecionado">
-            <br><br>
-            <button type="submit" class="botao-acoes">Adicionar</button>
-            <button type="button" id="btnCancelarAdicionarPlanejar" class="botao-acoes cancelar">Cancelar</button>
-        </form>
     </div>
 </main>
 
