@@ -167,19 +167,19 @@ if ($result && $result->num_rows > 0) {
             </div>
 
             <div class="fotoDevs">
-                <img id="pita" src="source/fernando.jpg" alt="">
+                <img id="pita" src="source/pita.jpg" alt="">
             </div>
 
             <div class="fotoDevs">
-                <img id="filipe" src="source/fernando.jpg" alt="">
+                <img id="filipe" src="source/filipe.jpg" alt="">
             </div>
 
             <div class="fotoDevs">
-                <img id="gaby" src="source/fernando.jpg" alt="">
+                <img id="gaby" src="source/gaby.jpg" alt="">
             </div>
             
             <div class="fotoDevs">
-                <img id="kauan" src="source/fernando.jpg" alt="">
+                <img id="kauan" src="source/kauan.jpg" alt="">
             </div>
 
             <div class="fotoDevs">
@@ -213,15 +213,15 @@ if ($result && $result->num_rows > 0) {
     f.addEventListener('click', joao);
 
     function fernando(){
-        bio.innerText = 'Fernando, Web Developer, 20 anos, estudante de Análise e Desenvolvimento de Sistemas. Apaixonado por tecnologia e desenvolvimento web, sempre buscando aprender e inovar. Auxiliar no desenvolvimento do GameCut, um site dedicado a jogos e entretenimento digital.';
+        bio.innerText = 'Fernando, Web Developer, 20 anos, estudante de Análise e Desenvolvimento de Sistemas. Apaixonado por tecnologia e desenvolvimento web, sempre buscando aprender e inovar. Auxiliar no desenvolvimento do GameCut. Responsável por desenvolver a parte web do GameCut.';
         }
 
     function filipe(){
-        bio.innerText = 'Filipe. Mobile Developer, '
+        bio.innerText = 'Filipe, Full Stack, 19 anos, estudante de Análise e Desenvolvimento de Sistemas no Senac. Cursando ADS na UNIP. Apaixonado por jogos eletrônicos e desenvolvimento mobile e web, sempre em busca de aprender e melhorar. Responsável por desenvolver a aplicação mobile do GameCut, um app focado em jogos e entretenimento digital.'
         }    
         
     function kauan(){
-        bio.innerText = 'KAUAN!'
+        bio.innerText = 'Kauan, estudante de análise e desenvolvimento de sistemas. Apaixonado por música, tecnologia, jogos e artes!. Sempre buscando evoluir e adquirir conhecimento. Auxiliar na criação e desenvolvimento do GameCut!'
         }
         
     function pita(){
@@ -229,7 +229,7 @@ if ($result && $result->num_rows > 0) {
         }
         
     function gaby(){
-        bio.innerText = 'GABY!'
+        bio.innerText = 'Gabrielly, 17 anos, estudante de Análise e Desenvolvimento de Sistemas no Senac. Apaixonada por música e tecnologia, sempre em busca de aprender e evoluir. Responsável pelo desenvolvimento da aplicação desktop do GameCut, um app focado em jogos e entretenimento digital.'
         }
         
     function joao(){

@@ -347,13 +347,12 @@ header{
     margin-right: auto;
     margin-left: auto;
     gap: 30px;
-    margin-bottom: px;
 }
 
 .fotoDevs{
     /* background-color: white; */
     width: 180px;
-    height: 230px;
+    height: 220px;
 }
 
 
@@ -478,4 +477,6 @@ header{
     font-family: "Bebas Neue", serif;
     font-size: 20px;
     text-align: center;
+    text-shadow: 0px 0px 8px #9e8afa;
 }
+
