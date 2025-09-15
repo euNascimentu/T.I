@@ -289,6 +289,13 @@ header{
     line-height: 1.2;
 }
 
+.data-lancamento{
+    font-family: "Bebas Neue", serif;
+    font-size: 14px;
+    color: #fdc200;
+    margin-top: 5px;
+}
+
 #loader {
             position: fixed;
             top:0;
@@ -362,6 +369,7 @@ header{
 
 .fotoDevs:hover #fernando {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 }
 
 /**/
@@ -371,6 +379,7 @@ header{
 
 .fotoDevs:hover #filipe {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 
 }
 /**/
@@ -380,6 +389,7 @@ header{
 
 .fotoDevs:hover #pita {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 }
 
 /**/
@@ -389,6 +399,7 @@ header{
 
 .fotoDevs:hover #kauan {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 }
 
 /**/
@@ -398,6 +409,7 @@ header{
 
 .fotoDevs:hover #joao {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 }
 
 /**/
@@ -407,6 +419,7 @@ header{
 
 .fotoDevs:hover #gaby {
     box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
 
 }
 
@@ -479,4 +492,3 @@ header{
     text-align: center;
     text-shadow: 0px 0px 8px #9e8afa;
 }
-

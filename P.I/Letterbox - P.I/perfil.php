@@ -25,11 +25,10 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idUsuario);
 $stmt->execute();
 $result = $stmt->get_result();
-$usuario = $result->fetch_assoc(); // aqui teremos os dados reais do usuário
+$usuario = $result->fetch_assoc();
 
-
-// Buscar jogos favoritos
-$sql_favoritos = "SELECT * FROM Jogo WHERE idJogo IN (SELECT idJogo FROM Favorito WHERE idUsuario = ?) LIMIT 4";
+// Buscar jogos favoritos (usando a tabela SalvarJogos com idTipoSalvar = 2 para favoritos)
+$sql_favoritos = "SELECT * FROM Jogo WHERE idJogo IN (SELECT idJogo FROM SalvarJogos WHERE idUsuario = ? AND idTipoSalvar = 2) LIMIT 4";
 $stmt_favoritos = $conn->prepare($sql_favoritos);
 $stmt_favoritos->bind_param("i", $idUsuario);
 $stmt_favoritos->execute();
@@ -51,50 +50,94 @@ $planejados = $stmt_planejados->get_result();
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-        .botao-acoes {
-            background-color: #fdc200;
-            color: #251831;
-            border: none;
-            padding: 10px 18px;
-            font-size: 15px;
-            font-family: 'Bebas Neue', cursive;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+       /* Estilos para os cards de jogo - Título completo no hover */
+        .lista-jogos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .botao-acoes:hover {
-            background-color: #ffc700;
-            transform: scale(1.05);
+       .jogo-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 240px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex; 
+}
+
+        .jogo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(253, 194, 0, 0.5);
         }
 
-        .botao-acoes.cancelar {
-            background-color: #703d85;
-            color: #fff;
+        .jogo-imagem {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0; 
         }
 
-        .botao-acoes.cancelar:hover {
-            background-color: #5827cc;
-        }
+       .jogo-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    vertical-align: bottom; 
+}
 
-        #sugestoesJogos {
-            background: #fff;
-            color: #000;
-            border: 1px solid #ccc;
-            max-height: 150px;
-            overflow-y: auto;
+        .jogo-titulo {
             position: absolute;
-            z-index: 99;
-            width: 250px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(37, 24, 49, 0.98), transparent);
+            color: #fdc200;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 20px;
+            padding: 70px 15px 15px 15px;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            text-align: center;
+            white-space: normal;
+            overflow: visible;
+            height: auto;
+            min-height: 80px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            line-height: 1.3;
+            word-wrap: break-word;
         }
 
-        #sugestoesJogos div {
-            padding: 8px;
-            cursor: pointer;
+        .jogo-card:hover .jogo-titulo {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        #sugestoesJogos div:hover {
-            background-color: #eee;
+        .carregando-imagem {
+            color: #999;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background-color: #1a1025;
+        }
+        
+        /* Garantir que o texto não seja cortado */
+        .jogo-titulo span {
+            display: block;
+            width: 100%;
+            max-height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
     </style>
 </head>
@@ -107,7 +150,7 @@ $planejados = $stmt_planejados->get_result();
                 <div class="botoesHeader">
                     <a class="a" href="index.php">home</a>
                     <a class="a" href="jogos.php">Jogos</a>
-                    <a class="a" href="">Biblioteca</a>
+                    <a class="a" href="biblioteca.php">Biblioteca</a>
                 </div>
                 <div class="perfilLogin">
                 <?php if (isset($_SESSION['usuario'])): ?>
@@ -155,17 +198,16 @@ $planejados = $stmt_planejados->get_result();
         <div class="lista-jogos">
             <?php if ($favoritos && $favoritos->num_rows > 0): ?>
                 <?php while ($jogo = $favoritos->fetch_assoc()): ?>
-                    <div class="jogo-card">
+                    <div class="jogo-card" data-nome="<?= htmlspecialchars($jogo['nomeJogo']) ?>">
                         <div class="jogo-imagem">
-                            <span>Imagem</span>
+                            <span class="carregando-imagem">Carregando imagem...</span>
                         </div>
                         <h3 class="jogo-titulo"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
                     </div>
                 <?php endwhile; ?>
-                <?php else: ?>
-                    <p class="mensagem-vazia">Nenhum jogo favorito adicionado ainda.</p>
-                <?php endif; ?>
-            </div>
+            <?php else: ?>
+                <p class="mensagem-vazia">Nenhum jogo favorito adicionado ainda.</p>
+            <?php endif; ?>
         </div>
     </div>
 </main>
@@ -181,87 +223,43 @@ document.getElementById('btnCancelarEdicao').addEventListener('click', () => {
     document.getElementById('btnEditarPerfil').style.display = 'inline-block';
 });
 
-// Planejo jogar - formulário
-document.getElementById('btnAdicionarPlanejar').addEventListener('click', () => {
-    document.getElementById('formAdicionarPlanejar').style.display = 'block';
-    document.getElementById('btnAdicionarPlanejar').style.display = 'none';
-});
-document.getElementById('btnCancelarAdicionarPlanejar').addEventListener('click', () => {
-    document.getElementById('formAdicionarPlanejar').style.display = 'none';
-    document.getElementById('btnAdicionarPlanejar').style.display = 'inline-block';
-});
-
-// Autocomplete com RAWG
-const input = document.getElementById('buscaJogo');
-const sugestoes = document.getElementById('sugestoesJogos');
-const idJogo = document.getElementById('idJogoSelecionado');
-const nomeJogo = document.getElementById('nomeJogoSelecionado');
-
-input.addEventListener('input', async () => {
-    const query = input.value.trim();
-    if (query.length < 2) {
-        sugestoes.innerHTML = '';
-        return;
-    }
-
-    const response = await fetch(`https://api.rawg.io/api/games?search=${encodeURIComponent(query)}&page_size=5&key=2bf7427a54a148aa9674a33abf59fa0a`);
-    const data = await response.json();
-
-    sugestoes.innerHTML = '';
-    if (data.results) {
-        data.results.forEach(jogo => {
-            const div = document.createElement('div');
-            div.textContent = jogo.name;
-            div.dataset.id = jogo.id;
-            div.dataset.name = jogo.name;
-            div.addEventListener('click', () => {
-                input.value = jogo.name;
-                idJogo.value = jogo.id;
-                nomeJogo.value = jogo.name;
-                sugestoes.innerHTML = '';
+// Carregar imagens dos jogos da API RAWG
+document.addEventListener('DOMContentLoaded', () => {
+    const apiKey = '2bf7427a54a148aa9674a33abf59fa0a';
+    const jogosCards = document.querySelectorAll('.jogo-card');
+    
+    jogosCards.forEach(card => {
+        const nomeJogo = card.dataset.nome;
+        
+        // Buscar jogo na API RAWG
+        fetch(`https://api.rawg.io/api/games?search=${encodeURIComponent(nomeJogo)}&key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.results && data.results.length > 0) {
+                    // Usar o primeiro resultado (mais relevante)
+                    const jogoData = data.results[0];
+                    const imagemUrl = jogoData.background_image;
+                    
+                    // Atualizar a imagem no card
+                    const imagemContainer = card.querySelector('.jogo-imagem');
+                    if (imagemUrl) {
+                        imagemContainer.innerHTML = `<img src="${imagemUrl}" alt="${nomeJogo}">`;
+                    } else {
+                        imagemContainer.innerHTML = '<span>Imagem não disponível</span>';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar imagem:', error);
+                const imagemContainer = card.querySelector('.jogo-imagem');
+                imagemContainer.innerHTML = '<span>Erro ao carregar imagem</span>';
             });
-            sugestoes.appendChild(div);
-        });
-    }
+    });
 });
 
-document.addEventListener('click', function (e) {
-    if (!document.getElementById('formAdicionarPlanejar').contains(e.target)) {
-        sugestoes.innerHTML = '';
-    }
-});
-</script>
-
-<script>
 setTimeout(() => {
     document.body.style.backgroundColor = '#251831';
 }, 2000);
-</script>
-
-
-<script>
-const apiKey = '2bf7427a54a148aa9674a33abf59fa0a';
-
-document.querySelectorAll('.jogo-card[data-idrawg]').forEach(async (card) => {
-    const jogoId = card.dataset.idrawg;
-    if (!jogoId) return;
-
-    try {
-        const response = await fetch(`https://api.rawg.io/api/games/${jogoId}?key=${apiKey}`);
-        if (!response.ok) throw new Error('Erro na resposta da API');
-        const data = await response.json();
-
-        const divImagem = card.querySelector('.jogo-imagem');
-        if (data.background_image) {
-           divImagem.innerHTML = `<img src="${data.background_image}" alt="${data.name}" class="jogo-img-card">`;
-
-        } else {
-            divImagem.innerHTML = '<span>Imagem indisponível</span>';
-        }
-    } catch (error) {
-        console.error('Erro ao carregar imagem do jogo:', error);
-    }
-});
 </script>
 
 </body>

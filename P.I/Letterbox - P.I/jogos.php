@@ -89,6 +89,16 @@ if ($result && $result->num_rows > 0) {
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Press+Start+2P&display=swap');
+        
+        /* Estilo para tornar os cards clicáveis */
+        .b-game-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .b-game-card:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="bg-animado">
@@ -125,7 +135,7 @@ if ($result && $result->num_rows > 0) {
     <p class="tituloConteudo">Jogos</p>
     <article class="l-container">
 <?php foreach ($jogos as $jogo): ?>
-    <div class="b-game-card">
+    <div class="b-game-card" onclick="window.location.href='jogo_selecionado.php?id=<?= $jogo['idJogo'] ?>'">
         <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagemApi']) ?>');">
             <div class="b-game-card__hover">
                 <h3 class="b-game-card__title"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
