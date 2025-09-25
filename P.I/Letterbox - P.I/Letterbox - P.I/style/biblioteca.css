@@ -1,0 +1,363 @@
+/* biblioteca.css */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+.biblioteca-container {
+    width: 60%;
+    margin: auto;
+    padding-bottom: 1px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    background-color: #251831;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    box-shadow: 0px -1px 10px 4px rgba(253, 194, 0, 0.2);
+}
+
+.biblioteca-titulo {
+    background-color: white;
+    width: 230px;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    border-bottom-right-radius: 220px;
+    /* border-top-left-radius: 40px; */
+    font-size: 35px;
+    font-family: "Bebas Neue", serif;
+    margin-bottom: 30px;
+    color: #251831;
+    margin-left: 0;
+}
+
+
+.categoria {
+    width: 90%;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgba(53, 31, 74, 0.6);
+    border-radius: 12px;
+    border: 2px solid #5827cc;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.categoria-titulo {
+    color: #fdc200;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #5827cc;
+}
+
+/* Grid de jogos */
+.jogos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.jogo-card {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    border: solid 2px #fdc200;
+}
+
+.jogo-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0px 10px 4px #fdc20067;
+}
+
+.jogo-imagem-container {
+    width: 100%;
+    padding-top: 140%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.jogo-imagem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.jogo-card:hover .jogo-imagem {
+    transform: scale(1.05);
+}
+
+.jogo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.jogo-card:hover .jogo-overlay {
+    opacity: 1;
+}
+
+.jogo-acoes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.jogo-acao-btn {
+    background-color: #fdc200;
+    color: #251831;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.jogo-acao-btn:hover {
+    background-color: #5827cc;
+    color: white;
+    transform: scale(1.1);
+}
+
+.jogo-info {
+    padding: 15px;
+    background: linear-gradient(145deg, #3a2352, #2d1c3f);
+}
+
+.jogo-titulo {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.jogo-genero {
+    color: #fdc200;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+.jogo-nota {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.jogo-categoria {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #5827cc;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Mensagem de lista vazia */
+.vazio {
+    color: #fdc200;
+    font-style: italic;
+    text-align: center;
+    padding: 40px 20px;
+    grid-column: 1 / -1;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.vazio::before {
+    content: "🎮";
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.biblioteca-filtros {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    /* background-color: rgba(53, 31, 74, 0.6); */
+    border-radius: 12px;
+    border: 2px solid #5827cc;
+}
+
+.filtro-grupo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-label {
+    color: #fdc200;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+}
+
+.filtro-select {
+    background-color: #251831;
+    color: white;
+    border: 2px solid #5827cc;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.biblioteca-busca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.busca-input {
+    background-color: #251831;
+    color: white;
+    border: 2px solid #5827cc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 16px;
+    width: 250px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.busca-btn {
+    background-color: #fdc200;
+    color: #251831;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.busca-btn:hover {
+    background-color: #5827cc;
+    color: white;
+}
+
+
+@media (max-width: 1024px) {
+    .biblioteca-container {
+        width: 80%;
+    }
+    
+    .jogos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .biblioteca-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .jogos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .biblioteca-filtros {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .filtro-grupo {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .biblioteca-busca {
+        width: 100%;
+    }
+    
+    .busca-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .biblioteca-container {
+        width: 95%;
+        border-top-right-radius: 100px;
+    }
+    
+    .jogos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .categoria-titulo {
+        font-size: 26px;
+    }
+    
+    .biblioteca-titulo {
+        font-size: 28px;
+        height: 6vh;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.categoria {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.categoria:nth-child(1) { animation-delay: 0.1s; }
+.categoria:nth-child(2) { animation-delay: 0.2s; }
+.categoria:nth-child(3) { animation-delay: 0.3s; }
+.categoria:nth-child(4) { animation-delay: 0.4s; }
+
+
+.busca-input:focus, .filtro-select:focus {
+    outline: none;
+    border-color: #fdc200;
+    box-shadow: 0 0 5px #fdc200;
+}

@@ -1,0 +1,272 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body.bg-animado {
+  background-image: url("../source/gif.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.bg-estatico {
+  background-image: url("../source/gifFramed1.png"); /* frame congelado */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header{
+    background-color: #fdc200;
+    display: flex;
+    width: 60%;
+    height: 7vh;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -4px 10px 4px #fdc20046;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+
+#fundologo{
+    /* background-color: red; */
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 90px;
+    height: 90px;
+}
+
+#fundoButtons{
+    /* background-color: beige; */
+    width: 90%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.a{
+    text-decoration: none;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+}
+
+.a2{
+    text-decoration: none !important;
+    font-style: none;
+}
+
+.botoesHeader{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+}
+
+/* Estilo do botão que mostra o nome */
+.dropbtn {
+    background-color: transparent;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    max-width: 100px;        /* limite máximo de largura */
+    white-space: nowrap;     /* impede quebra de linha */
+    overflow: hidden;        /* corta o texto que ultrapassar */
+    text-overflow: ellipsis; /* adiciona "..." no fim do texto cortado */
+    flex-shrink: 1;          /* permite encolher se necessário */
+}
+
+/* Container do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Itens do dropdown (escondidos por padrão) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdc200;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1;
+    right: 0;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+    color: #5827cc;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+}
+
+/* Efeito hover dos links */
+.dropdown-content a:hover {
+    background-color: #c8a500;
+    color: white;
+}
+
+/* Mostrar dropdown ao passar o mouse no botão */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Opcional: muda a cor do botão ao passar o mouse */
+.dropdown:hover .dropbtn {
+    color: #c8a500;
+}
+
+.perfilLogin {
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* espaço entre o nome e a foto */
+    width: 15%;
+    max-width: 200px;        /* limite máximo da área para usuário */
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+    overflow: visible;        /* para evitar que o conteúdo extrapole */
+}
+
+.fotoPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;      
+    flex-shrink: 0;          /* NÃO deixa a foto encolher */
+}
+
+.fotinhaPerfil {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;      
+}
+
+section{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 60%;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+
+    /* border-top-left-radius: 10px;
+    border-top-right-radius: 10px; */
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    box-shadow: 0px 10px 10px 4px #fdc20046;
+}
+
+
+.tituloConteudo{
+    background-color: white;
+    width: 120px;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0px;
+    border-bottom-right-radius: 220px;
+    /* border-top-left-radius: 40px; */
+    font-size: 35px;
+    font-family: "Bebas Neue", serif;
+    margin-bottom: 80px;
+}
+
+.l-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.b-game-card {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.b-game-card:hover {
+    transform: scale(1.08);
+}
+
+.b-game-card__cover {
+    width: 100%;
+    padding-top: 140%; /* altura proporcional */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.b-game-card__hover {
+    position: absolute;
+    top: 0; left: 0;
+    width: 101%;
+    height: 101%;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    opacity: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 12px;
+    transition: opacity 0.3s ease;
+}
+
+.b-game-card:hover .b-game-card__hover {
+    opacity: 1;
+}
+
+.b-game-card__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    margin: 0;
+}
+
+.b-game-card__genre, .b-game-card__rating {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    margin: 2px 0;
+}
+
+.b-game-card__desc {
+    font-size: 12px;
+    margin-top: 5px;
+    line-height: 1.2;
+}
+

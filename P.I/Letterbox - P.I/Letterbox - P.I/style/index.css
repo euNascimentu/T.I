@@ -1,0 +1,497 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body.bg-animado {
+  background-image: url("../source/gif.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.bg-estatico {
+  background-image: url("../source/gifFramed1.png"); /* frame congelado */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+header{
+    background-color: #fdc200;
+    display: flex;
+    width: 60%;
+    height: 7vh;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -1px 10px 4px #fdc20046;
+    margin-top: 10px;
+}
+
+#fundologo{
+    /* background-color: red; */
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 90px;
+    height: 90px;
+}
+
+#fundoButtons{
+    /* background-color: beige; */
+    width: 90%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.a{
+    text-decoration: none;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+}
+
+.a2{
+    text-decoration: none !important;
+    font-style: none;
+}
+
+.botoesHeader{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+}
+
+/* Estilo do botão que mostra o nome */
+.dropbtn {
+    background-color: transparent;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    max-width: 100px;        /* limite máximo de largura */
+    white-space: nowrap;     /* impede quebra de linha */
+    overflow: hidden;        /* corta o texto que ultrapassar */
+    text-overflow: ellipsis; /* adiciona "..." no fim do texto cortado */
+    flex-shrink: 1;          /* permite encolher se necessário */
+}
+
+/* Container do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Itens do dropdown (escondidos por padrão) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdc200;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1;
+    right: 0;
+}
+
+/* Links dentro do dropdown */
+.dropdown-content a {
+    color: #5827cc;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+}
+
+/* Efeito hover dos links */
+.dropdown-content a:hover {
+    background-color: #c8a500;
+    color: white;
+}
+
+/* Mostrar dropdown ao passar o mouse no botão */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Opcional: muda a cor do botão ao passar o mouse */
+.dropdown:hover .dropbtn {
+    color: #c8a500;
+}
+
+.perfilLogin {
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* espaço entre o nome e a foto */
+    width: 15%;
+    max-width: 200px;        /* limite máximo da área para usuário */
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+    overflow: visible;        /* para evitar que o conteúdo extrapole */
+}
+
+.fotoPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;      
+    flex-shrink: 0;          /* NÃO deixa a foto encolher */
+}
+
+.fotinhaPerfil {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;      
+}
+
+#section{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+    height: 65vh;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 220px;
+    border-top-left-radius: 40px;
+}
+
+#Banner{
+    /* background-color: white; */
+    display: flex;
+    margin: auto;
+    margin-top: 1px;
+    width: 100%;
+    height: 30vh;
+    /* border-top-left-radius: 160px; */
+    /* border-bottom-right-radius: 250px; */
+}
+
+.fotoBan{
+    margin: auto;
+    width: 60%;
+    height: 30vh;
+    border-bottom-left-radius: 220px;
+    border-bottom-right-radius: 40px;
+}
+
+.tituloConteudo{
+    background-color: white;
+    width: 210px;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    border-bottom-right-radius: 220px;
+    border-top-left-radius: 40px;
+    font-size: 35px;
+    font-family: "Bebas Neue", serif;
+    margin-bottom: 80px;
+}
+
+.l-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.jogoIndex{
+    cursor: pointer;
+}
+
+.b-game-card {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    border: solid 2px #fdc200;
+}
+
+.b-game-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0px 10px 4px #fdc20067;
+}
+
+.b-game-card__cover {
+    width: 100%;
+    padding-top: 140%; /* altura proporcional */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.b-game-card__hover {
+    position: absolute;
+    top: 0; left: 0;
+    width: 95%;
+    height: 97%;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    opacity: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 12px;
+    transition: opacity 0.3s ease;
+}
+
+.b-game-card:hover .b-game-card__hover {
+    opacity: 1;
+}
+
+.b-game-card__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    margin: 0;
+}
+
+.b-game-card__genre, .b-game-card__rating {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+.b-game-card__desc {
+    font-size: 14px;
+    margin-top: 5px;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.data-lancamento{
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#loader {
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background-color:#251831;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            z-index:9999;
+            color:white;
+            font-family:"Bebas Neue", sans-serif;
+        }
+
+        .spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #5827cc;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom:20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+
+#descSite{
+    background-color: #251831;
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 160px;
+    margin-top: 20px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 220px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 40px;
+}
+
+.euFoto{
+    /* background-color: beige; */
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 30px;
+}
+
+.fotoDevs{
+    /* background-color: white; */
+    width: 180px;
+    height: 220px;
+}
+
+
+.fotoDevs:hover #fernando {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #fernando {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+}
+
+/**/
+.fotoDevs:hover #filipe {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #filipe {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+
+}
+/**/
+.fotoDevs:hover #pita {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #pita {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+}
+
+/**/
+.fotoDevs:hover #kauan {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #kauan {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+}
+
+/**/
+.fotoDevs:hover #joao {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #joao {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+}
+
+/**/
+.fotoDevs:hover #gaby {
+    transform: translate(0px, -8px);
+}
+
+.fotoDevs:hover #gaby {
+    box-shadow: 0px 0px 10px 4px #7165AE;
+    background-color: #45346d;
+
+}
+
+
+#fernando{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#joao{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#gaby{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#filipe{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#kauan{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+#pita{
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 12px;border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    transition: transform 0.25s ease-in-out;
+}
+
+.bioDevs{
+    /* background-color: skyblue; */
+    width: 58%;
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+    padding: 20px;
+    color: white;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: 0px 0px 8px #9e8afa;
+}

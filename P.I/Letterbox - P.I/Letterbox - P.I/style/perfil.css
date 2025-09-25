@@ -1,0 +1,519 @@
+@charset "UTF-8";
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.bg-animado {
+    background-image: url("../source/gif.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body.bg-estatico {
+    background-repeat: no-repeat;
+    background-image: url("../source/gifFramed1.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Header */
+header{
+    background-color: #fdc200;
+    display: flex;
+    width: 48%;
+    height: 7vh;
+    margin: auto;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px -4px 10px 4px #fdc20046;
+    margin-top: 10px;
+    margin-bottom: 7px;
+}
+ 
+#fundologo{
+    /* background-color: red; */
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 10px;
+}
+ 
+.logo{
+    width: 70px;
+    height: 70px;
+}
+ 
+#fundoButtons{
+    /* background-color: beige; */
+    width: 88%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+ 
+.a{
+    text-decoration: none;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+}
+ 
+.a2{
+    text-decoration: none !important;
+    font-style: none;
+}
+ 
+.botoesHeader{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+}
+ 
+/* Estilo do botão que mostra o nome */
+.dropbtn {
+    background-color: transparent;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    max-width: 100px;        /* limite máximo de largura */
+    white-space: nowrap;     /* impede quebra de linha */
+    overflow: hidden;        /* corta o texto que ultrapassar */
+    text-overflow: ellipsis; /* adiciona "..." no fim do texto cortado */
+    flex-shrink: 1;          /* permite encolher se necessário */
+}
+ 
+/* Container do dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+ 
+/* Itens do dropdown (escondidos por padrão) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdc200;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    z-index: 1;
+    right: 0;
+}
+ 
+/* Links dentro do dropdown */
+.dropdown-content a {
+    color: #5827cc;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: "Bebas Neue", serif;
+    font-size: 18px;
+}
+ 
+/* Efeito hover dos links */
+.dropdown-content a:hover {
+    background-color: #c8a500;
+    color: white;
+}
+ 
+/* Mostrar dropdown ao passar o mouse no botão */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+ 
+/* Opcional: muda a cor do botão ao passar o mouse */
+.dropdown:hover .dropbtn {
+    color: #c8a500;
+}
+ 
+.perfilLogin {
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* espaço entre o nome e a foto */
+    width: 15%;
+    max-width: 200px;        /* limite máximo da área para usuário */
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+    overflow: visible;        /* para evitar que o conteúdo extrapole */
+}
+ 
+.fotoPerfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;      
+    flex-shrink: 0;          /* NÃO deixa a foto encolher */
+}
+ 
+.fotinhaPerfil {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;      
+}
+
+/* Perfil Container */
+.perfil-container {
+    background-color: #251831;
+    width: 48%;
+    margin: 20px auto;
+    padding: 30px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.jogoFav{
+    cursor: pointer;
+}
+
+/* Cabeçalho Perfil */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #fdc200;
+    padding-bottom: 20px;
+}
+
+.foto-perfil-grande {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fdc200;
+    margin-right: 25px;
+}
+
+.perfil-info {
+    flex: 1;
+}
+
+.perfil-nome {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 42px;
+    color: #fdc200;
+    margin-bottom: 10px;
+}
+
+.perfil-bio {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Seções de Jogos */
+.secao-jogos {
+    margin-bottom: 40px;
+}
+
+.titulo-secao {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 28px;
+    color: #fdc200;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #703d85;
+    padding-bottom: 8px;
+}
+
+.lista-jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+/* Cartão de Jogo */
+.jogo-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.jogo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(253, 194, 0, 0.4);
+}
+
+.jogo-imagem {
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jogo-titulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    color: #5827cc;
+    text-align: center;
+    padding: 12px;
+    background-color: #fff;
+}
+
+/* Mensagens Vazias */
+.mensagem-vazia {
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+/* Acessibilidade (ocultar visualmente, mas manter para leitores de tela) */
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    header, .perfil-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .foto-perfil-grande {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .lista-jogos {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    header, .perfil-container {
+        width: 95%;
+    }
+
+    .lista-jogos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Botão Editar Perfil */
+#btnEditarPerfil {
+    background-color: #fdc200;
+    color: #251831;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #fdc200cc;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+}
+
+#btnEditarPerfil:hover {
+    background-color: #e6b500;
+    box-shadow: 0 0 15px #e6b500cc;
+}
+
+#formAdicionarPlanejar{
+    font-family: "Bebas Neue", serif;
+    font-size: 21px;
+}
+
+#buscaJogo{
+    /* background-color: red; */
+    margin-left: 10px;
+    border: solid 1px #fdc200;
+    border-radius: 10px;
+    padding: 3px;
+    font-family: "Bebas Neue", serif;
+}
+
+/* Formulário de edição perfil */
+#formEditarPerfil {
+    margin-top: 20px;
+    background-color: #251831;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #fdc200aa;
+    color: white;
+    max-width: 400px;
+}
+
+#formEditarPerfil label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fdc200;
+}
+
+#formEditarPerfil input[type="text"],
+#formEditarPerfil textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+}
+
+#formEditarPerfil button[type="submit"] {
+    background-color: #fdc200;
+    color: #251831;
+    border: none;
+    padding: 10px 18px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #fdc200cc;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+#formEditarPerfil button[type="submit"]:hover {
+    background-color: #e6b500;
+    box-shadow: 0 0 15px #e6b500cc;
+}
+
+#formEditarPerfil button#btnCancelarEdicao {
+    background-color: transparent;
+    border: 2px solid #fdc200;
+    color: #fdc200;
+    padding: 8px 18px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#formEditarPerfil button#btnCancelarEdicao:hover {
+    background-color: #fdc200;
+    color: #251831;
+}
+
+.sugestoes {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+}
+
+.sugestoes div {
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    color: #251831;
+}
+
+.sugestoes div:hover {
+    background-color: #fdc200;
+    color: #251831;
+}
+
+/* Botões personalizados de ação (planejar/cancelar) */
+.botao-acoes {
+    background-color: #fdc200;
+    color: #251831;
+    border: none;
+    padding: 10px 18px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-acoes:hover {
+    background-color: #ffc700;
+    transform: scale(1.05);
+}
+
+.botao-acoes.cancelar {
+    background-color: #703d85;
+    color: #fff;
+}
+
+.botao-acoes.cancelar:hover {
+    background-color: #5827cc;
+}
+
+.jogo-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px; /* tamanho fixo de card */
+    height: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.jogo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(253, 194, 0, 0.4);
+}
+
+.jogo-imagem {
+    width: 100%;
+    height: 140px; /* altura controlada */
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.jogo-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.jogo-titulo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    color: #5827cc;
+    margin-top: 10px;
+    padding: 0 10px;
+}

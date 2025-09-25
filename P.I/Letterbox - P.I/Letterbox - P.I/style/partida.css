@@ -1,0 +1,342 @@
+@charset "UTF-8";
+
+/* ===== IMPORTAR FONTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+/* ===== ESTILOS GERAIS ===== */
+.partida-container {
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+/* ===== TÍTULO ===== */
+.tituloConteudo {
+    background-color: white;
+    width: 190px;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 5px;
+    border-bottom-right-radius: 220px;
+    font-size: 35px;
+    font-family: "Bebas Neue", serif;
+    margin-bottom: 30px;
+    color: #251831;
+}
+
+/* ===== FORMULÁRIOS ===== */
+.criar-partida, .minhas-partidas {
+    background-color: #2d1f42;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid #fdc200;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.partida-container label {
+    display: block;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.partida-container select, 
+.partida-container input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid #5827cc;
+    background-color: #1a1129;
+    color: white;
+    font-size: 18px;
+    font-family: "Bebas Neue", sans-serif;
+    box-sizing: border-box;
+}
+
+/* ===== CONTAINER DE USUÁRIOS ===== */
+.usuarios-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 2px solid #5827cc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #1a1129;
+    margin-top: 10px;
+}
+
+.usuario-checkbox {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #2d1f42;
+}
+
+.usuario-checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.usuario-checkbox input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+/* ===== BOTÕES ===== */
+.btn-criar {
+    background-color: #fdc200;
+    color: #251831;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    margin-top: 20px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.btn-criar:hover {
+    background-color: #e6b000;
+}
+
+/* ===== LISTA DE PARTIDAS ===== */
+.minhas-partidas h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.partida-item {
+    background-color: #1a1129;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 5px solid #fdc200;
+}
+
+.partida-info {
+    color: white;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 18px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.partida-info strong {
+    color: #fdc200;
+}
+
+
+.nome-vencedor {
+    color: #7165AE;
+    font-weight: bold;
+    
+}
+
+.vencedor-info {
+    color: #27c7a4;
+    font-size: 20px;
+}
+
+.sem-vencedor {
+    color: #ff6b6b;
+    font-size: 18px;
+}
+
+/* ===== AÇÕES DA PARTIDA ===== */
+.partida-acoes {
+    border-top: 1px solid #5827cc;
+    padding-top: 15px;
+}
+
+.partida-acoes form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.partida-acoes select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #5827cc;
+    background-color: #2d1f42;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.btn-vencedor {
+    background-color: #27c7a4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+}
+
+.btn-vencedor:hover {
+    background-color: #20a58a;
+}
+
+/* ===== MENSAGENS ===== */
+.mensagem {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.sucesso {
+    background-color: #27c7a4;
+    color: white;
+}
+
+.erro {
+    background-color: #ff4444;
+    color: white;
+}
+
+/* ===== TEXTO INFORMATIVO ===== */
+.partida-container small {
+    color: #fdc200;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .partida-container {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .partida-acoes form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .partida-acoes select {
+        min-width: unset;
+        width: 100%;
+    }
+}
+
+/* ===== CHECKBOXES PARA VENCEDORES ===== */
+.vencedores-container {
+    margin-bottom: 15px;
+}
+
+.vencedores-container label {
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.vencedores-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #1a1129;
+    border-radius: 8px;
+    border: 2px solid #5827cc;
+}
+
+.vencedor-checkbox {
+    padding: 12px;
+    background-color: #2d1f42;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    border: 1px solid #3d2a5a;
+}
+
+.vencedor-checkbox:hover {
+    background-color: #3d2a5a;
+    border-color: #fdc200;
+}
+
+.vencedor-checkbox input[type="checkbox"] {
+    transform: scale(1.3);
+    margin-right: 12px;
+}
+
+.vencedor-checkbox label {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.vencedor-checkbox input[type="checkbox"]:checked + label {
+    color: #fdc200;
+    font-weight: bold;
+}
+
+/* ===== MELHORIAS NO FORMULÁRIO DE VENCEDORES ===== */
+.vencedor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn-vencedor {
+    background-color: #27c7a4;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    transition: all 0.3s;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-vencedor:hover {
+    background-color: #20a58a;
+    transform: translateY(-2px);
+}
