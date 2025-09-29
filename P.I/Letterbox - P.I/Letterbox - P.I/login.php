@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="inputs">
         <div class="email">
             <p>EMAIL</p>
-            <input type="text" name="email" required>
+            <input type="text" name="email" required autofocus>
         </div>
         <div class="senha">
             <p>SENHA</p>

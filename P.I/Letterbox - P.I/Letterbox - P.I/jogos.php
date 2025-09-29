@@ -123,7 +123,9 @@ if ($result && $result->num_rows > 0) {
                 </div>
             </div>
             <div class="fotoPerfil">
-                <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                <a href="perfil.php">
+                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                </a>
             </div>
             <?php else: ?>
             <a href="login.php">login</a>

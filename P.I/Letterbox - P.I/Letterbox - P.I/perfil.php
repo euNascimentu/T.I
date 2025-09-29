@@ -163,7 +163,9 @@ $planejados = $stmt_planejados->get_result();
                         </div>
                 </div>
                 <div class="fotoPerfil">
-                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                    <a href="perfil.php">
+                        <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                    </a>
                 </div>
                 <?php else: ?>
                     <!-- Usuário NÃO logado -->
@@ -180,6 +182,9 @@ $planejados = $stmt_planejados->get_result();
 
             <!-- Botão editar -->
             <button id="btnEditarPerfil" class="botao-acoes" style="margin-top: 15px;">Editar Perfil</button>
+            <a href="partida.php">
+                <button id="btnEditarPerfil" class="botao-acoes" style="margin-top: 15px;">Partidas</button>
+            </a>
 
             <!-- Form editar -->
             <form id="formEditarPerfil" action="editar_perfil.php" method="post" style="display:none; margin-top: 15px;">

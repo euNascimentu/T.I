@@ -125,7 +125,9 @@ $conn->close();
                     </div>
                 </div>
                 <div class="fotoPerfil">
-                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="Foto de perfil">
+                    <a href="perfil.php">
+                        <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                    </a>
                 </div>
             </div>
         </div>

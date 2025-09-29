@@ -76,7 +76,7 @@
                 <div class="inputs">
                     <div class="nome">
                         <p>Usuário</p>
-                        <input type="text" id="usuario" name="usuario" required>
+                        <input type="text" id="usuario" name="usuario" required autofocus>
                     </div>
                     <div class="email">
                         <p>EMAIL</p>

@@ -314,7 +314,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['usuario']) && isse
                 </div>
             </div>
             <div class="fotoPerfil">
-                <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                <a href="perfil.php">
+                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                </a>
             </div>
             <?php else: ?>
             <a href="login.php">login</a>
