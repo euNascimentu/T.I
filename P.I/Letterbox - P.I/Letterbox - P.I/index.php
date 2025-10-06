@@ -268,116 +268,129 @@ if (count($jogos) < 3) {
     </style>
 </head>
 <body class="bg-animado">
- 
-    <!-- Tela de loading -->
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>Carregando jogos...</p>
-    </div>
- 
-    <!-- Conteúdo principal -->
-    <header>
-        <div id="fundologo">
-            <img class="logo" src="source/logoRoxa-Remove.png" alt="">
-        </div>
-        <div id="fundoButtons">
-            <div class="botoesHeader">
-                <a class="a" href="index.php">home</a>
-                <a class="a" href="jogos.php">Jogos</a>
-                <a class="a" href="biblioteca.php">Biblioteca</a>
-                <a class="a" href="partida.php">partida</a>
-            </div>
-            <div class="perfilLogin">
-            <?php if (isset($_SESSION['usuario'])): ?>
-            <div class="dropdown">
-                <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></button>
-                    <div class="dropdown-content">
-                        <a class="a2" href="perfil.php">Perfil</a>
-                        <a class="a2" href="logout.php">Sair</a>
-                    </div>
-            </div>
-            <div class="fotoPerfil">
-                <a href="perfil.php">
-                    <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
-                </a>
-            </div>
-            <?php else: ?>
-                <a href="login.php">login</a>
-            <?php endif; ?>
-        </div>
-    </header>
- 
-    <div id="Banner">
-        <img class="fotoBan" src="source/banner.gif" alt="">
-    </div>
- 
-    <section id="section">
-        <p class="tituloConteudo">LANÇAMENTOS<span class="ano-destaque"></span></p>
-        <article class="l-container" id="gameCards" style="display:none;" >
-        <?php if (empty($jogos)): ?>
-            <div class="aviso">
-                <p>Nenhum jogo encontrado. Tente novamente mais tarde.</p>
-            </div>
-        <?php else: ?>
-            <?php foreach ($jogos as $jogo): ?>
-            <div class="b-game-card" onclick="window.location.href='jogo_selecionado.php?id=<?= $jogo['idJogo'] ?>'">
-                <?php if (isset($jogo['anoLancamento']) && $jogo['anoLancamento'] == '2025'): ?>
-                <div class="badge-2025">2025</div>
-                <?php endif; ?>
-                <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagem']) ?>');">
-                    <div class="b-game-card__hover">
-                        <h3 class="b-game-card__title"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
-                        <p class="b-game-card__genre"><?= htmlspecialchars($jogo['genero']) ?></p>
-                        <p class="b-game-card__rating">⭐ <?= htmlspecialchars($jogo['notaMedia']) ?></p>
-                        <?php if(!empty($jogo['dataLancamento'])): ?>
-                        <p class="data-lancamento">Lançamento: <?= date('d/m/Y', strtotime($jogo['dataLancamento'])) ?></p>
-                        <?php endif; ?>
-                        <?php if(!empty($jogo['descricao'])): ?>
-                        <p class="b-game-card__desc"><?= htmlspecialchars(mb_strimwidth($jogo['descricao'], 0, 150, "...")) ?></p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-        </article>
-    </section>
- 
-    <section id="descSite">
-        <p class="tituloConteudo"> Quem somos? </p>
- 
-        <div class="euFoto">
-            <div class="fotoDevs">
-                <img id="fernando" src="source/Fernando.png" alt="">
-            </div>
- 
-            <div class="fotoDevs">
-                <img id="pita" src="source/Pedro.png" alt="">
-            </div>
- 
-            <div class="fotoDevs">
-                <img id="filipe" src="source/Filipe.png" alt="">
-            </div>
- 
-            <div class="fotoDevs">
-                <img id="gaby" src="source/Gabi.png" alt="">
-            </div>
-           
-            <div class="fotoDevs">
-                <img id="kauan" src="source/Kauan.png" alt="">
-            </div>
- 
-            <div class="fotoDevs">
-                <img id="joao" src="source/João.png" alt="">
-            </div>
-        </div>
-           
-        <div class="bioDevs">
-            <p id="bio">
-                Selecione um desenvolvedor para saber mais!
-            </p>
-        </div>
-    </section>
+<main>
+    
+       <!-- Tela de loading -->
+       <div id="loader">
+           <div class="spinner"></div>
+           <p>Carregando jogos...</p>
+       </div>
+    
+       <!-- Conteúdo principal -->
+       <header>
+           <div id="fundologo">
+               <img class="logo" src="source/logoRoxa-Remove.png" alt="">
+           </div>
+           <div id="fundoButtons">
+               <div class="botoesHeader">
+                   <a class="a" href="index.php">home</a>
+                   <a class="a" href="jogos.php">Jogos</a>
+                   <a class="a" href="biblioteca.php">Biblioteca</a>
+                   <a class="a" href="partida.php">partida</a>
+               </div>
+               <div class="perfilLogin">
+               <?php if (isset($_SESSION['usuario'])): ?>
+               <div class="dropdown">
+                   <button class="dropbtn"><?= htmlspecialchars($_SESSION['usuario']['nome']) ?></button>
+                       <div class="dropdown-content">
+                           <a class="a2" href="perfil.php">Perfil</a>
+                           <a class="a2" href="logout.php">Sair</a>
+                       </div>
+               </div>
+               <div class="fotoPerfil">
+                   <a href="perfil.php">
+                       <img class="fotinhaPerfil" src="source/gatopewpew.jpg" alt="">
+                   </a>
+               </div>
+               <?php else: ?>
+                   <a href="login.php">login</a>
+               <?php endif; ?>
+           </div>
+       </header>
+    
+       <div id="Banner">
+           <img class="fotoBan" src="source/banner.gif" alt="">
+       </div>
+
+       <section id="sectionComunidade">
+       <p class="tituloConteudo">Comunidade</p>
+    
+       <div class="busca-usuario">
+           <input type="text" id="buscarUsuario" placeholder="Digite o nome do usuário...">
+           <button onclick="buscarUsuarios()">🔍 Buscar</button>
+       </div>
+    
+       <div id="resultadosBusca" class="resultados-busca"></div>
+       </section>
+    
+       <section id="section">
+           <p class="tituloConteudo">LANÇAMENTOS<span class="ano-destaque"></span></p>
+           <article class="l-container" id="gameCards" style="display:none;" >
+           <?php if (empty($jogos)): ?>
+               <div class="aviso">
+                   <p>Nenhum jogo encontrado. Tente novamente mais tarde.</p>
+               </div>
+           <?php else: ?>
+               <?php foreach ($jogos as $jogo): ?>
+               <div class="b-game-card" onclick="window.location.href='jogo_selecionado.php?id=<?= $jogo['idJogo'] ?>'">
+                   <?php if (isset($jogo['anoLancamento']) && $jogo['anoLancamento'] == '2025'): ?>
+                   <div class="badge-2025">2025</div>
+                   <?php endif; ?>
+                   <div class="b-game-card__cover" style="background-image: url('<?= htmlspecialchars($jogo['imagem']) ?>');">
+                       <div class="b-game-card__hover">
+                           <h3 class="b-game-card__title"><?= htmlspecialchars($jogo['nomeJogo']) ?></h3>
+                           <p class="b-game-card__genre"><?= htmlspecialchars($jogo['genero']) ?></p>
+                           <p class="b-game-card__rating">⭐ <?= htmlspecialchars($jogo['notaMedia']) ?></p>
+                           <?php if(!empty($jogo['dataLancamento'])): ?>
+                           <p class="data-lancamento">Lançamento: <?= date('d/m/Y', strtotime($jogo['dataLancamento'])) ?></p>
+                           <?php endif; ?>
+                           <?php if(!empty($jogo['descricao'])): ?>
+                           <p class="b-game-card__desc"><?= htmlspecialchars(mb_strimwidth($jogo['descricao'], 0, 150, "...")) ?></p>
+                           <?php endif; ?>
+                       </div>
+                   </div>
+               </div>
+               <?php endforeach; ?>
+           <?php endif; ?>
+           </article>
+       </section>
+    
+       <section id="descSite">
+           <p class="tituloConteudo"> Quem somos? </p>
+    
+           <div class="euFoto">
+               <div class="fotoDevs">
+                   <img id="fernando" src="source/Fernando.png" alt="">
+               </div>
+    
+               <div class="fotoDevs">
+                   <img id="pita" src="source/Pedro.png" alt="">
+               </div>
+    
+               <div class="fotoDevs">
+                   <img id="filipe" src="source/Filipe.png" alt="">
+               </div>
+               
+               <div class="fotoDevs">
+                   <img id="gaby" src="source/Gabi.png" alt="">
+               </div>
+    
+               <div class="fotoDevs">
+                   <img id="kauan" src="source/Kauan.png" alt="">
+               </div>
+    
+               <div class="fotoDevs">
+                   <img id="joao" src="source/João.png" alt="">
+               </div>
+           </div>
+    
+           <div class="bioDevs">
+               <p id="bio">
+                   Selecione um desenvolvedor para saber mais!
+               </p>
+           </div>
+       </section>
+</main>
  
 </body>
 <script>
@@ -451,5 +464,84 @@ if (count($jogos) < 3) {
             document.body.classList.add('bg-estatico');
         }, 10000);
     });
+
+    function buscarUsuarios() {
+    const termo = document.getElementById('buscarUsuario').value.trim();
+    const resultadosDiv = document.getElementById('resultadosBusca');
+    
+    if (termo === '') {
+        resultadosDiv.innerHTML = '<div class="sem-resultados">Digite um nome para buscar</div>';
+        return;
+    }
+    
+    resultadosDiv.innerHTML = '<div class="loading">Buscando usuários...</div>';
+    
+    // Criar requisição AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'buscar_usuarios.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                resultadosDiv.innerHTML = xhr.responseText;
+                
+                // Adicionar event listeners aos botões após carregar os resultados
+                adicionarEventListeners();
+            } else {
+                resultadosDiv.innerHTML = '<div class="sem-resultados">Erro ao buscar usuários</div>';
+            }
+        }
+    };
+    
+    xhr.send('termo=' + encodeURIComponent(termo));
+}
+
+function adicionarEventListeners() {
+    // Adicionar event listener para os botões "Ver Perfil"
+    const botoes = document.querySelectorAll('.ver-perfil-btn');
+    botoes.forEach(botao => {
+        botao.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const userId = this.getAttribute('data-user-id');
+            console.log('Clicou no botão, userId:', userId); // Para debug
+            
+            if (userId) {
+                window.location.href = 'perfil_usuario.php?id=' + userId;
+            }
+        });
+    });
+    
+    // Adicionar event listener para os cards (clicar em qualquer lugar do card)
+    const cards = document.querySelectorAll('.usuario-card');
+    cards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Não disparar se clicou no botão
+            if (!e.target.classList.contains('ver-perfil-btn')) {
+                const userId = this.getAttribute('data-user-id');
+                console.log('Clicou no card, userId:', userId); // Para debug
+                
+                if (userId) {
+                    window.location.href = 'perfil_usuario.php?id=' + userId;
+                }
+            }
+        });
+    });
+}
+
+// Buscar ao pressionar Enter
+document.getElementById('buscarUsuario').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        buscarUsuarios();
+    }
+});
+
+// Buscar automaticamente quando a página carrega (opcional)
+document.addEventListener('DOMContentLoaded', function() {
+    // Foco no campo de busca
+    document.getElementById('buscarUsuario').focus();
+});
 </script>
 </html>

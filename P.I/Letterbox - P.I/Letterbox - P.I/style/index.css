@@ -166,6 +166,25 @@ header{
     object-fit: cover;      
 }
 
+#sectionComunidade{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+    /* height: 45vh; */
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 220px;
+    border-top-left-radius: 40px;
+}
+
 #section{
     background-color: #251831; 
     display: flex;
@@ -181,7 +200,7 @@ header{
     /*Curvas Cantos*/
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
-    border-top-right-radius: 220px;
+    border-top-right-radius: 13px;
     border-top-left-radius: 40px;
 }
 
@@ -204,6 +223,17 @@ header{
     border-bottom-right-radius: 40px;
 }
 
+.adms{
+    background-color: red;
+    display: flex;
+
+    width: 20%;
+    color: white;
+    font-family: "Bebas Neue", serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 .tituloConteudo{
     background-color: white;
     width: 210px;
@@ -215,7 +245,7 @@ header{
     border-top-left-radius: 40px;
     font-size: 35px;
     font-family: "Bebas Neue", serif;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .l-container {
@@ -494,4 +524,380 @@ header{
     font-size: 20px;
     text-align: center;
     text-shadow: 0px 0px 8px #9e8afa;
+}
+
+.busca-usuario {
+display: flex;
+gap: 10px;
+margin: 20px 0;
+justify-content: center;
+align-items: center;
+}
+
+#buscarUsuario {
+    padding: 12px 15px;
+    border: 2px solid #5827cc;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    width: 300px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#buscarUsuario:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+    transform: scale(1.05);
+}
+
+.busca-usuario button {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #5827cc, #8b5cf6);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.busca-usuario button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+}
+
+.resultados-busca {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.usuario-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #5827cc;
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.usuario-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.usuario-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #5827cc, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.usuario-info {
+    flex: 1;
+}
+
+.usuario-nome {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.usuario-bio {
+    font-size: 14px;
+    color: #a0a0c0;
+    margin-bottom: 8px;
+}
+
+.usuario-tipo {
+    display: inline-block;
+    padding: 3px 8px;
+    background: #5827cc;
+    border-radius: 12px;
+    font-size: 12px;
+    color: white;
+}
+
+.usuario-tipo.admin {
+    background: linear-gradient(45deg, #ff6b6b, #ffa86b);
+}
+
+.ver-perfil-btn {
+    padding: 8px 15px;
+    background: transparent;
+    border: 2px solid #5827cc;
+    border-radius: 20px;
+    color: #5827cc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.ver-perfil-btn:hover {
+    background: #5827cc;
+    color: white;
+    transform: scale(1.05);
+}
+
+.sem-resultados {
+    text-align: center;
+    color: #a0a0c0;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+.loading {
+    text-align: center;
+    color: #5827cc;
+    margin-top: 20px;
+}
+
+@media screen and (min-width:858px) and (max-width:992px){ /*TABLET*/
+    
+    main{
+        width: 100%;
+
+    }
+
+    #fundologo{
+    /* background-color: red; */
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .logo{
+    width: 65px;
+    height: 65px;
+    }
+
+    #fundoButtons{
+    /* background-color: beige; */
+    width: 90%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+
+    .botoesHeader{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    }
+
+    .perfilLogin {
+        /* background-color: red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 30%;
+    max-width: 200px;
+    font-family: "Bebas Neue", serif;
+    font-size: 25px;
+    overflow: visible;
+    }
+
+    #Banner{
+    /* background-color: white; */
+    display: flex;
+    margin: auto;
+    margin-top: 1px;
+    width: 60%;
+    height: 25vh;
+    /* border-top-left-radius: 160px; */
+    /* border-bottom-right-radius: 250px; */
+    }
+
+    .fotoBan{
+    margin: auto;
+    width: 100%;
+    height: 25vh;
+    border-bottom-left-radius: 220px;
+    border-bottom-right-radius: 40px;
+    }
+
+    .busca-usuario {
+    /* background-color: red; */
+    display: flex;
+    height: 10vh;
+    gap: 10px;
+    margin-top: -15px;
+    justify-content: center;
+    align-items: center;
+    }
+
+    #sectionComunidade{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+    height: 15vh;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 25px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 220px;
+    border-top-right-radius: 220px;
+    border-top-left-radius: 40px;
+    }
+
+    #section{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+    height: 40vh;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 20px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 40px;
+    }
+
+    .euFoto{
+    /* background-color: beige; */
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-right: auto;
+    margin-left: auto;
+    gap: 30px;
+    }
+
+    .fotoDevs{
+    /* background-color: white; */
+    width: 150px;
+    height: 190px;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:858px){ /*TABLET*/
+    
+    .fotoPerfil {
+        display: none;
+    }
+
+    .botoesHeader{
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    }
+
+    .a{
+    text-decoration: none;
+    color: #5827cc;
+    font-family: "Bebas Neue", serif;
+    font-size: 15px;
+    }
+
+    .perfilLogin {
+        background-color: red;
+    display: flex;
+    align-items: center;
+    gap: 10px;               /* espaço entre o nome e a foto */
+    width: 25%;
+    max-width: 200px;        /* limite máximo da área para usuário */
+    font-family: "Bebas Neue", serif;
+    font-size: 10px;
+    overflow: visible;        /* para evitar que o conteúdo extrapole */
+    }
+
+        #Banner{
+    /* background-color: white; */
+    display: flex;
+    margin: auto;
+    margin-top: 1px;
+    width: 60%;
+    height: 25vh;
+    /* border-top-left-radius: 160px; */
+    /* border-bottom-right-radius: 250px; */
+    }
+
+    .fotoBan{
+    margin: auto;
+    width: 100%;
+    height: 25vh;
+    border-bottom-left-radius: 220px;
+    border-bottom-right-radius: 40px;
+    }
+
+    .busca-usuario {
+    /* background-color: red; */
+    display: flex;
+    height: 10vh;
+    gap: 10px;
+    margin-top: -15px;
+    justify-content: center;
+    align-items: center;
+    }
+
+    #sectionComunidade{
+    background-color: #251831; 
+    display: flex;
+    flex-flow: column;
+    width: 58%;
+    height: 15vh;
+
+    /*Espaçamentos*/
+    margin: auto;
+    margin-bottom: 14px;
+    margin-top: 25px;
+
+    /*Curvas Cantos*/
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 220px;
+    border-top-right-radius: 220px;
+    border-top-left-radius: 40px;
+    }
+
+    #section{
+        display: none;
+    }
+
+        #fundologo{
+    /* background-color: red; */
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .logo{
+    width: 45px;
+    height: 45px;
+    }
 }
